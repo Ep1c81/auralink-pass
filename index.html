@@ -88,8 +88,7 @@
             </div>
 
             <!-- Lead Form -->
-            <form action="https://formspree.io/f/xwvgowqo" method="POST" class="space-y-4"> 
-                <input type="hidden" name="Star Rating" id="star-rating-input" value="0">
+            <form action="https://formspree.io/f/xwvgowqo" method="POST" class="space-y-4">
                <div>
         <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-1">Full Name</label>
         <input type="text" name="Name" required placeholder="Your Name" autocomplete="off"
@@ -100,22 +99,31 @@
         <input type="tel" name="WhatsApp" required placeholder="+506 8888-8888" autocomplete="off"
                class="w-full bg-stone-950 border border-stone-800 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-stone-100 placeholder-stone-600 outline-none transition-all">
     </div>
+<div class="text-center my-4">
+    <p class="text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-2">Rate your store experience today</p>
+    <div class="flex justify-center space-x-2 text-2xl direction-rtl">
+        <!-- Star 5 -->
+        <input type="radio" id="star5" name="Star Rating" value="5" class="hidden peer/5">
+        <label for="star5" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/5:text-gold-500">&#9733;</label>
 
-                <!-- Star Rating Prompt built right into signup -->
-                <div class="pt-2">
-                    <label class="block text-center text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-2">Rate your store experience today</label>
-                    <div class="flex justify-center gap-3 text-2xl">
-                        <button type="button" onclick="setRating(1)" class="star-btn text-stone-700 hover:text-gold-400 transition-colors"><i class="fa-solid fa-star"></i></button>
-                        <button type="button" onclick="setRating(2)" class="star-btn text-stone-700 hover:text-gold-400 transition-colors"><i class="fa-solid fa-star"></i></button>
-                        <button type="button" onclick="setRating(3)" class="star-btn text-stone-700 hover:text-gold-400 transition-colors"><i class="fa-solid fa-star"></i></button>
-                        <button type="button" onclick="setRating(4)" class="star-btn text-stone-700 hover:text-gold-400 transition-colors"><i class="fa-solid fa-star"></i></button>
-                        <button type="button" onclick="setRating(5)" class="star-btn text-stone-700 hover:text-gold-400 transition-colors"><i class="fa-solid fa-star"></i></button>
-                    </div>
-                </div>
+        <!-- Star 4 -->
+        <input type="radio" id="star4" name="Star Rating" value="4" class="hidden peer/4">
+        <label for="star4" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/4:text-gold-500">&#9733;</label>
 
-                <button type="submit" class="w-full mt-4 bg-gradient-to-r from-gold-600 to-gold-400 hover:from-gold-500 hover:to-gold-500 text-stone-950 font-bold text-sm py-3.5 rounded-xl shadow-lg transition-all transform active:scale-[0.98]">
-                    Claim 10% Off Discount
-                </button>
+        <!-- Star 3 -->
+        <input type="radio" id="star3" name="Star Rating" value="3" class="hidden peer/3">
+        <label for="star3" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/3:text-gold-500">&#9733;</label>
+
+        <!-- Star 2 -->
+        <input type="radio" id="star2" name="Star Rating" value="2" class="hidden peer/2">
+        <label for="star2" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/2:text-gold-500">&#9733;</label>
+
+        <!-- Star 1 -->
+        <input type="radio" id="star1" name="Star Rating" value="1" class="hidden peer/1">
+        <label for="star1" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/1:text-gold-500">&#9733;</label>
+   <button type="submit" class="w-full mt-4 bg-gradient-to-r from-gold-600 to-gold-400 hover:from-gold-500 hover:to-gold-500 text-stone-950 font-bold text-sm py-3.5 rounded-xl shadow-lg transition-all active:scale-[0.98]">
+        Claim 10% Off Discount
+    </button>
             </form>
         </div>
 
