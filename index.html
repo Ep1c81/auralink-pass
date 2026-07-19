@@ -194,20 +194,48 @@
         }
 
         function handleFormSubmit(event) {
-            event.preventDefault();
-            
-            if (currentRating === 0) {
-                alert("Please select a star rating to claim your discount.");
-                return;
-            }
+    event.preventDefault();
+    
+    if (currentRating === 0) {
+        alert("Please select a star rating to claim your discount.");
+        return;
+    }
 
-            if (currentRating >= 4) {
-                window.open(REAL_GOOGLE_REVIEW_URL, '_blank');
-                showStage('success-stage');
-            } else {
-                showStage('feedback-stage');
-            }
+    // 1. Grab the form element and data
+    const form = document.getElementById('lead-form');
+    const formData = new FormData(form);
+    
+    // 2. Append our active star rating to the form data payload
+    formData.append("Star Rating", currentRating);
+
+    // 3. Send data to Formspree silently in the background
+    // REPLACE THE URL BELOW WITH YOUR ACTUAL FORMSPREE ENDPOINT URL
+    fetch("https://formspree.io/f/YOUR_FORM_ID_HERE", {
+        method: "POST",
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
         }
+    })
+    .then(response => {
+        // Data is safely logged! Now route the user based on their score
+        if (currentRating >= 4) {
+            window.open(REAL_GOOGLE_REVIEW_URL, '_blank');
+            showStage('success-stage');
+        } else {
+            showStage('feedback-stage');
+        }
+    })
+    .catch(error => {
+        console.error("Form submission error:", error);
+        // Fallback: still show the next screen to the user even if network hiccuped
+        if (currentRating >= 4) {
+            showStage('success-stage');
+        } else {
+            showStage('feedback-stage');
+        }
+    });
+}
 
         function submitPrivateFeedback() {
             alert("Thank you! Your feedback has been logged securely.");
