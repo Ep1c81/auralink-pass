@@ -180,27 +180,39 @@
             });
         });
 
-        function setRating(rating) {
-            currentRating = rating;
-            const stars = document.querySelectorAll('.star-btn');
-            stars.forEach((star, index) => {
-                if (index < rating) {
-                    star.classList.remove('text-stone-700');
-                    star.classList.add('text-gold-500');
-                } else {
-                    star.classList.remove('text-gold-500');
-                    star.classList.add('text-stone-700');
-                }
-            });
-        }
-
-        function handleFormSubmit(event) {
-    event.preventDefault();
+       function setRating(rating) {
+    currentRating = rating;
     
-    if (currentRating === 0) {
-        alert("Please select a star rating to claim your discount.");
-        return;
+    // 1. Update our hidden form field so Formspree catches the number
+    const hiddenInput = document.getElementById('star-rating-input');
+    if (hiddenInput) {
+        hiddenInput.value = rating;
     }
+    
+    // 2. Keep the visual star tracking updated
+    const stars = document.querySelectorAll('.star-btn');
+    stars.forEach((star, index) => {
+        if (index < rating) {
+            star.classList.remove('text-stone-700');
+            star.classList.add('text-gold-500');
+        } else {
+            star.classList.remove('text-gold-500');
+            star.classList.add('text-stone-700');
+        }
+    });
+
+    // 3. Smart routing based on rating tier
+    // If it's a 4 or 5 star rating, set Formspree to redirect to Google Reviews
+    // If it's 1-3 stars, leave it blank so it defaults to your internal success page
+    const form = document.getElementById('lead-form');
+    if (form) {
+        if (rating >= 4) {
+            form.setAttribute('action', 'https://formspree.io/f/xwvgowqo?_next=' + encodeURIComponent(REAL_GOOGLE_REVIEW_URL));
+        } else {
+            form.setAttribute('action', 'https://formspree.io/f/xwvgowqo');
+        }
+    }
+}
 
     // 1. Grab the form element and data
     const form = document.getElementById('lead-form');
