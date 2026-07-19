@@ -88,7 +88,8 @@
             </div>
 
             <!-- Lead Form -->
-            <form id="lead-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+            <form action="https://formspree.io/f/xwvgowqo" method="POST" class="space-y-4"> 
+                <input type="hidden" name="Star Rating" id="star-rating-input" value="0">
                <div>
         <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-1">Full Name</label>
         <input type="text" name="Name" required placeholder="Your Name" autocomplete="off"
