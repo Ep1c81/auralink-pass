@@ -1,172 +1,225 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-slate-950 text-slate-100">
+<html lang="en" class="h-full bg-stone-950 text-stone-100">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura Link Digital | Premium Digital Pass</title>
+    <title>VIP Club | Premium Spirits & Wine</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- QRCode.js Library CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            deep: '#0B0F19',
-                            slate: '#1E293B',
-                            accent: '#38BDF8',
-                            purple: '#A855F7',
-                            glow: '#6366F1'
+                        gold: {
+                            50: '#FDFBF7',
+                            100: '#FBF7ED',
+                            400: '#E6C687',
+                            500: '#D4AF37', // Classic Metallic Gold
+                            600: '#AA882C'
+                        },
+                        amber: {
+                            950: '#1C0D02'
                         }
                     }
                 }
             }
         }
     </script>
-    <!-- FontAwesome for icons -->
+    <!-- FontAwesome for premium icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
+    <!-- Google Fonts for Luxury Aesthetic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+        .serif-title { font-family: 'Cinzel', serif; }
+        body { font-family: 'Inter', sans-serif; }
+        .luxury-glass {
+            background: rgba(28, 25, 23, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
         }
-        .glass-panel {
-            background: rgba(15, 23, 42, 0.65);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .gold-glow {
+            box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.2);
         }
-        .glow-effect {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: 0;
-            opacity: 0.15;
+        /* Style the generated QR canvas slightly rounded and clean */
+        #qrcode img {
+            margin: 0 auto;
+            border-radius: 12px;
+            padding: 8px;
+            background: white;
         }
     </style>
 </head>
-<body class="min-h-full flex flex-col items-center justify-center p-4 md:p-8 relative overflow-x-hidden bg-slate-950">
+<body class="min-h-full flex flex-col items-center justify-center p-4 relative overflow-x-hidden bg-gradient-to-b from-stone-950 via-amber-950 to-stone-950">
 
-    <!-- Ambient Glowing Backgrounds -->
-    <div class="glow-effect w-[300px] h-[300px] bg-brand-accent top-[-10%] left-[-10%]"></div>
-    <div class="glow-effect w-[400px] h-[400px] bg-brand-purple bottom-[-10%] right-[-10%]"></div>
-    <div class="glow-effect w-[350px] h-[350px] bg-brand-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+    <!-- Subtle Premium Background Glows -->
+    <div class="absolute w-[400px] h-[400px] rounded-full bg-gold-500/5 blur-[120px] top-[-10%] left-[-10%]"></div>
+    <div class="absolute w-[400px] h-[400px] rounded-full bg-amber-600/5 blur-[120px] bottom-[-10%] right-[-10%]"></div>
 
     <!-- Main Card Container -->
-    <div class="w-full max-w-md glass-panel rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 transition-all duration-500 hover:shadow-brand-accent/5">
+    <div class="w-full max-w-md luxury-glass rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 gold-glow">
         
-        <!-- Header / Logo Area -->
-        <div class="flex flex-col items-center text-center mb-6">
-            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-accent via-brand-glow to-brand-purple p-0.5 shadow-lg shadow-brand-accent/20 mb-4">
-                <div class="w-full h-full bg-brand-deep rounded-[14px] flex items-center justify-center">
-                    <!-- Modern Minimalist Logo Emblem -->
-                    <span class="text-2xl font-black bg-gradient-to-r from-brand-accent to-brand-purple bg-clip-text text-transparent">A</span>
+        <!-- Step 1: The VIP Registration Portal -->
+        <div id="portal-stage">
+            <div class="text-center mb-5">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-gold-500/30 bg-stone-900 mb-3">
+                    <i class="fa-solid fa-crown text-gold-500 text-xl"></i>
                 </div>
+                <h1 class="serif-title text-2xl font-bold tracking-wide text-gold-400">The Reserve Lounge</h1>
+                <p class="text-xs tracking-[0.15em] text-stone-400 uppercase mt-1">Exclusive VIP Loyalty Rewards</p>
             </div>
-            <h1 class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-                Aura Link Digital
-            </h1>
-            <p class="text-xs uppercase tracking-[0.2em] text-brand-accent font-semibold mt-1">
-                Digital Marketing & Neuromarketing
-            </p>
-        </div>
 
-        <!-- Divider -->
-        <div class="h-px w-full bg-gradient-to-r from-transparent via-slate-800 to-transparent mb-6"></div>
+            <!-- Dynamic Live QR Code Container -->
+            <div class="flex flex-col items-center justify-center bg-stone-900/40 border border-stone-800/60 rounded-2xl p-4 mb-5 text-center">
+                <div id="qrcode" class="bg-white p-2 rounded-xl inline-block shadow-inner mb-2"></div>
+                <p class="text-[10px] uppercase tracking-widest text-gold-400/80 font-medium">Scan or Tap to Share Card</p>
+            </div>
 
-        <!-- QR Code Section -->
-        <div class="flex flex-col items-center mb-8">
-            <div class="relative p-4 bg-white rounded-2xl shadow-xl shadow-black/40 transition-transform duration-300 hover:scale-[1.02]">
-                <!-- Dynamic High-Quality QR Code API pointing to auralinkdigital.com -->
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://auralinkdigital.com&color=0f172a&bgcolor=ffffff&qzone=1" 
-                     alt="QR Code Link to auralinkdigital.com" 
-                     class="w-48 h-48 rounded-lg"
-                     loading="lazy">
-                
-                <!-- Mini Logo Center Overlay -->
-                <div class="absolute inset-0 m-auto w-10 h-10 bg-white rounded-lg p-0.5 flex items-center justify-center shadow-md border border-slate-100">
-                    <div class="w-full h-full bg-gradient-to-tr from-brand-accent to-brand-purple rounded-md flex items-center justify-center text-white font-bold text-sm">
-                        A
+            <div class="bg-stone-900/80 border border-stone-800 rounded-2xl p-4 text-center mb-5">
+                <p class="text-sm text-stone-300">
+                    Join our VIP circle today to unlock <span class="text-gold-400 font-bold">10% OFF</span> your current purchase & receive weekend flash sale invites.
+                </p>
+            </div>
+
+            <!-- Lead Form -->
+            <form id="lead-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-1">Full Name</label>
+                    <input type="text" required placeholder="Alex Noel" 
+                           class="w-full bg-stone-950 border border-stone-800 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-stone-100 placeholder-stone-600 outline-none transition-all">
+                </div>
+                <div>
+                    <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-1">WhatsApp Number</label>
+                    <input type="tel" required placeholder="+506 8888-8888" 
+                           class="w-full bg-stone-950 border border-stone-800 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-stone-100 placeholder-stone-600 outline-none transition-all">
+                </div>
+
+                <!-- Star Rating Prompt built right into signup -->
+                <div class="pt-2">
+                    <label class="block text-center text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-2">Rate your store experience today</label>
+                    <div class="flex justify-center gap-3 text-2xl">
+                        <button type="button" onclick="setRating(1)" class="star-btn text-stone-700 hover:text-gold-400 transition-colors"><i class="fa-solid fa-star"></i></button>
+                        <button type="button" onclick="setRating(2)" class="star-btn text-stone-700 hover:text-gold-400 transition-colors"><i class="fa-solid fa-star"></i></button>
+                        <button type="button" onclick="setRating(3)" class="star-btn text-stone-700 hover:text-gold-400 transition-colors"><i class="fa-solid fa-star"></i></button>
+                        <button type="button" onclick="setRating(4)" class="star-btn text-stone-700 hover:text-gold-400 transition-colors"><i class="fa-solid fa-star"></i></button>
+                        <button type="button" onclick="setRating(5)" class="star-btn text-stone-700 hover:text-gold-400 transition-colors"><i class="fa-solid fa-star"></i></button>
                     </div>
                 </div>
+
+                <button type="submit" class="w-full mt-4 bg-gradient-to-r from-gold-600 to-gold-400 hover:from-gold-500 hover:to-gold-500 text-stone-950 font-bold text-sm py-3.5 rounded-xl shadow-lg transition-all transform active:scale-[0.98]">
+                    Claim 10% Off Discount
+                </button>
+            </form>
+        </div>
+
+        <!-- Step 2: Smart Feedback Routing -->
+        <div id="feedback-stage" class="hidden text-center py-4">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/10 text-amber-500 mb-4">
+                <i class="fa-solid fa-comment-dots text-xl"></i>
             </div>
-            <p class="text-xs text-slate-400 mt-4 flex items-center gap-2">
-                <i class="fa-solid fa-qrcode text-brand-accent"></i>
-                Scan code to visit our website
+            <h2 class="serif-title text-xl font-bold text-stone-200 mb-2">Thank You For Your Feedback</h2>
+            <p class="text-sm text-stone-400 mb-6">
+                Please let us know how we can improve your next visit. Your message goes directly to our executive management team.
             </p>
-        </div>
-
-        <!-- Quick Info / Social Links -->
-        <div class="space-y-3 mb-8">
-            <a href="https://auralinkdigital.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-3.5 rounded-xl bg-slate-900/50 hover:bg-slate-900 border border-slate-800/40 hover:border-slate-700/60 transition-all group">
-                <div class="w-10 h-10 rounded-lg bg-brand-accent/10 flex items-center justify-center text-brand-accent group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-globe"></i>
-                </div>
-                <div class="text-left">
-                    <div class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Official Website</div>
-                    <div class="text-sm font-medium text-slate-200 group-hover:text-brand-accent transition-colors">auralinkdigital.com</div>
-                </div>
-                <i class="fa-solid fa-chevron-right ml-auto text-slate-600 text-xs transition-transform group-hover:translate-x-1"></i>
-            </a>
-
-            <div class="flex items-center gap-4 p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/40">
-                <div class="w-10 h-10 rounded-lg bg-brand-purple/10 flex items-center justify-center text-brand-purple">
-                    <i class="fa-solid fa-layer-group"></i>
-                </div>
-                <div class="text-left">
-                    <div class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Specialization</div>
-                    <div class="text-sm font-medium text-slate-200">High-Tech Neuromarketing</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="grid grid-cols-2 gap-3">
-            <button onclick="shareCard()" class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-900 hover:bg-slate-850 border border-slate-800 text-sm font-semibold transition-all text-slate-200">
-                <i class="fa-solid fa-share-nodes text-slate-400"></i> Share Link
+            <textarea placeholder="Share your thoughts privately..." rows="4" 
+                      class="w-full bg-stone-950 border border-stone-800 focus:border-gold-500 rounded-xl p-3 text-sm text-stone-100 placeholder-stone-600 outline-none transition-all mb-4 resize-none"></textarea>
+            <button onclick="submitPrivateFeedback()" class="w-full bg-stone-900 hover:bg-stone-850 border border-stone-800 text-gold-400 font-semibold text-sm py-3.5 rounded-xl transition-all">
+                Submit Private Review
             </button>
-            <a href="https://auralinkdigital.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-brand-accent to-brand-glow text-slate-950 font-bold text-sm shadow-lg shadow-brand-accent/10 hover:shadow-brand-accent/25 transition-all hover:opacity-95">
-                Visit Site <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-            </a>
         </div>
 
-        <!-- Save Indicator -->
-        <div class="mt-6 text-center">
-            <span class="text-[11px] text-slate-500">
-                Tip: Add to home screen or screenshot to save to your photo library.
-            </span>
+        <!-- Step 3: Success Reward / Coupon Screen -->
+        <div id="success-stage" class="hidden text-center py-4">
+            <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500/10 text-emerald-400 mb-4">
+                <i class="fa-solid fa-circle-check text-2xl"></i>
+            </div>
+            <h2 class="serif-title text-2xl font-bold text-white mb-1">Welcome to the Club!</h2>
+            <p class="text-xs text-stone-400 tracking-wider uppercase mb-6">Show this screen to the cashier</p>
+            
+            <!-- Digital Barcode/Coupon Simulation -->
+            <div class="bg-white p-6 rounded-2xl inline-block mb-6 shadow-xl">
+                <div class="text-stone-950 serif-title font-bold text-xl tracking-widest border-2 border-dashed border-stone-400 px-4 py-2">
+                    VIP-10-OFF
+                </div>
+                <p class="text-[10px] text-stone-500 mt-2 tracking-normal font-sans">Valid for today's transaction only</p>
+            </div>
+            
+            <p class="text-xs text-stone-400 px-4">
+                Your profile has been activated. You will receive exclusive catalog allocations and flash notifications directly via WhatsApp.
+            </p>
         </div>
 
     </div>
 
-    <!-- Footer Copyright -->
-    <p class="mt-8 text-xs text-slate-600 tracking-wider">
-        &copy; 2026 Aura Link Digital. All rights reserved.
+    <!-- Powering Footer -->
+    <p class="mt-6 text-[10px] text-stone-600 tracking-widest uppercase">
+        Engineered by <a href="https://auralinkdigital.com" target="_blank" class="text-gold-500/60 hover:text-gold-400 transition-colors">Aura Link Digital</a>
     </p>
 
-    <!-- Interactive JS Functionality -->
+    <!-- App System Logic Script -->
     <script>
-        async function shareCard() {
-            const shareData = {
-                title: 'Aura Link Digital',
-                text: 'Discover Aura Link Digital - Premium High-Tech Neuromarketing & Media.',
-                url: 'https://auralinkdigital.com'
-            };
+        let currentRating = 0;
+        const REAL_GOOGLE_REVIEW_URL = "https://auralinkdigital.com"; 
 
-            try {
-                if (navigator.share) {
-                    await navigator.share(shareData);
+        // AUTOMATICALLY GENERATE DYNAMIC QR CODE BASED ON CURRENT PAGE LINK
+        window.addEventListener('DOMContentLoaded', (event) => {
+            new QRCode(document.getElementById("qrcode"), {
+                text: window.location.href, // Grabs whatever live Vercel URL this page is running on!
+                width: 128,
+                height: 128,
+                colorDark : "#0c0a09", // stone-950 dark tone
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+
+        function setRating(rating) {
+            currentRating = rating;
+            const stars = document.querySelectorAll('.star-btn');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.remove('text-stone-700');
+                    star.classList.add('text-gold-500');
                 } else {
-                    // Fallback to copying to clipboard
-                    await navigator.clipboard.writeText('https://auralinkdigital.com');
-                    alert('Website URL copied to clipboard!');
+                    star.classList.remove('text-gold-500');
+                    star.classList.add('text-stone-700');
                 }
-            } catch (err) {
-                console.error('Error sharing:', err);
+            });
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            if (currentRating === 0) {
+                alert("Please select a star rating to claim your discount.");
+                return;
             }
+
+            if (currentRating >= 4) {
+                window.open(REAL_GOOGLE_REVIEW_URL, '_blank');
+                showStage('success-stage');
+            } else {
+                showStage('feedback-stage');
+            }
+        }
+
+        function submitPrivateFeedback() {
+            alert("Thank you! Your feedback has been logged securely.");
+            showStage('success-stage');
+        }
+
+        function showStage(stageId) {
+            document.getElementById('portal-stage').classList.add('hidden');
+            document.getElementById('feedback-stage').classList.add('hidden');
+            document.getElementById('success-stage').classList.add('hidden');
+            
+            document.getElementById(stageId).classList.remove('hidden');
         }
     </script>
 </body>
