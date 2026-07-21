@@ -88,7 +88,7 @@
             </div>
 
             <!-- Lead Form -->
-<form id="lead-form" onsubmit="return handleRatingRouting(event)">
+<form id="lead-form">
         <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-1">Full Name</label>
         <input type="text" name="Name" required placeholder="Your Name" autocomplete="off"
                class="w-full bg-stone-950 border border-stone-800 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-stone-100 placeholder-stone-600 outline-none transition-all">
@@ -269,61 +269,60 @@
             
             document.getElementById(stageId).classList.remove('hidden');
         }
-      <script>
-function handleRatingRouting(e) {
-    if (e) {
-        e.preventDefault();
-        if (typeof e.stopPropagation === 'function') e.stopPropagation();
-    }
-
+     <script>
+document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('lead-form') || document.querySelector('form');
-    const checkedStar = document.querySelector('input[name="Star Rating"]:checked');
+    if (!form) return;
 
-    if (!checkedStar) {
-        alert("Please select a star rating first.");
-        return false;
-    }
+    form.addEventListener('submit', function(e) {
+        // 1. HARD STOP - Prevents page reload 100% of the time
+        e.preventDefault();
+        e.stopPropagation();
 
-    const starId = checkedStar.id;
-    const rawVal = parseInt(checkedStar.value, 10);
+        const checkedStar = form.querySelector('input[name="Star Rating"]:checked');
 
-    const isLowRating = (starId === 'star1' || starId === 'star2' || starId === 'star3' || rawVal <= 3);
+        if (!checkedStar) {
+            alert("Please select a star rating first.");
+            return;
+        }
 
-    if (isLowRating) {
-        if (form) {
+        const starId = checkedStar.id;
+        const rawVal = parseInt(checkedStar.value, 10);
+
+        // Check if 1, 2, or 3 stars were selected
+        const isLowRating = (starId === 'star1' || starId === 'star2' || starId === 'star3' || rawVal <= 3);
+
+        // 2. LOW RATING (1, 2, or 3 Stars): Hide Form & Show Private Feedback Box
+        if (isLowRating) {
             form.style.display = 'none';
+
+            const feedbackBox = document.getElementById('feedback-stage');
+            if (feedbackBox) {
+                feedbackBox.classList.remove('hidden');
+                feedbackBox.style.display = 'block';
+            } else {
+                alert("Thank you for your feedback! We will get in touch soon.");
+            }
+            return;
         }
 
-        const feedbackBox = document.getElementById('feedback-stage');
-        if (feedbackBox) {
-            feedbackBox.classList.remove('hidden');
-            feedbackBox.style.display = 'block';
-        } else {
-            alert("Thank you for your feedback! We will get in touch soon.");
-        }
+        // 3. HIGH RATING (4 or 5 Stars): Submit to Formspree silently in background
+        const formData = new FormData(form);
 
-        return false;
-    }
-
-    const formData = new FormData(form);
-
-    fetch("https://formspree.io/f/xwvgowqo", {
-        method: "POST",
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-    }).then(function(response) {
-        if (typeof showStage === 'function') {
-            showStage('success-stage');
-        } else {
-            alert("Thank you for your rating! Redirecting to Google Reviews...");
-        }
-    }).catch(function(error) {
-        console.error("Submission error:", error);
-        alert("There was an error submitting your review.");
+        fetch("https://formspree.io/f/xwvgowqo", {
+            method: "POST",
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        }).then(function(response) {
+            if (typeof showStage === 'function') {
+                showStage('success-stage');
+            } else {
+                alert("Thank you for your rating! Redirecting to Google Reviews...");
+            }
+        }).catch(function(error) {
+            console.error("Submission error:", error);
+            alert("There was an error submitting your review.");
+        });
     });
-
-    return false;
-}
+});
 </script>
-</body>
-</html>
