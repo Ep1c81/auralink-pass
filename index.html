@@ -270,6 +270,21 @@
             
             document.getElementById(stageId).classList.remove('hidden');
         }
+        document.getElementById('lead-form').addEventListener('submit', function(e) {
+    const selectedStar = document.querySelector('input[name="Star Rating"]:checked');
+    const ratingValue = selectedStar ? parseInt(selectedStar.value) : 0;
+
+    if (ratingValue === 0) {
+        e.preventDefault();
+        alert("Please select a star rating to claim your discount.");
+        return;
+    }
+
+    if (ratingValue <= 3) {
+        e.preventDefault();
+        showStage('feedback-stage');
+    }
+});
     </script>
 </body>
 </html>
