@@ -88,8 +88,7 @@
             </div>
 
             <!-- Lead Form -->
-            <form id="lead-form" action="https://formspree.io/f/xwvgowqo" method="POST">
-               <div>
+<form action="https://formspree.io/f/xwvgowqo" method="POST" onsubmit="return handleRatingRouting(event, this)">
         <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-1">Full Name</label>
         <input type="text" name="Name" required placeholder="Your Name" autocomplete="off"
                class="w-full bg-stone-950 border border-stone-800 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-stone-100 placeholder-stone-600 outline-none transition-all">
@@ -270,30 +269,42 @@
             
             document.getElementById(stageId).classList.remove('hidden');
         }
-        document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('lead-form');
-
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            const selectedRadio = document.querySelector('input[name="Star Rating"]:checked');
-            const rating = selectedRadio ? parseInt(selectedRadio.value, 10) : 0;
-
-            // DIAGNOSTIC ALERT: Shows exact number registered by DOM
-            alert("Detected Rating Value: " + rating);
-
-            if (rating === 0) {
-                e.preventDefault();
-                alert("Please select a star rating.");
-                return;
-            }
-
-            // 1, 2, or 3 Stars -> Prevent Formspree & Show Private Feedback Stage
-            if (rating <= 3) {
-                e.preventDefault();
-                if (typeof showStage === 'function') {
-                    showStage('feedback-stage');
-                }
-            }
-        });
+       <script>
+   <script>
+function handleRatingRouting(event, formElement) {
+    const checkedStar = formElement.querySelector('input[name="Star Rating"]:checked');
+    
+    if (!checkedStar) {
+        event.preventDefault();
+        alert("Please select a star rating first.");
+        return false;
     }
-});
+
+    const starId = checkedStar.id; 
+    const rawVal = parseInt(checkedStar.value, 10);
+
+    // Stops submission if star1, star2, or star3 is clicked OR value <= 3
+    const isLowRating = (starId === 'star1' || starId === 'star2' || starId === 'star3' || rawVal <= 3);
+
+    if (isLowRating) {
+        event.preventDefault(); 
+        event.stopPropagation();
+
+        formElement.style.display = 'none';
+
+        const feedbackBox = document.getElementById('feedback-stage');
+        if (feedbackBox) {
+            feedbackBox.classList.remove('hidden');
+            feedbackBox.style.display = 'block';
+        } else {
+            alert("Thank you for your feedback! We will get in touch soon.");
+        }
+
+        return false;
+    }
+
+    return true;
+}
+</script>
+</body>
+</html>
