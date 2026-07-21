@@ -278,6 +278,9 @@
             const selectedRadio = document.querySelector('input[name="Star Rating"]:checked');
             const rating = selectedRadio ? parseInt(selectedRadio.value, 10) : 0;
 
+            // DIAGNOSTIC ALERT: Shows exact number registered by DOM
+            alert("Detected Rating Value: " + rating);
+
             if (rating === 0) {
                 e.preventDefault();
                 alert("Please select a star rating.");
@@ -291,7 +294,6 @@
                     showStage('feedback-stage');
                 }
             }
-            // 4 or 5 Stars -> Let form post to Formspree naturally
         });
     }
 });
