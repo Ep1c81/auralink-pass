@@ -88,7 +88,7 @@
             </div>
 
             <!-- Lead Form -->
-            <form action="https://formspree.io/f/xwvgowqo" method="POST" class="space-y-4">
+            <form id="lead-form" action="https://formspree.io/f/xwvgowqo" method="POST">
                <div>
         <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-1">Full Name</label>
         <input type="text" name="Name" required placeholder="Your Name" autocomplete="off"
@@ -270,21 +270,34 @@
             
             document.getElementById(stageId).classList.remove('hidden');
         }
-        document.getElementById('lead-form').addEventListener('submit', function(e) {
-    const selectedStar = document.querySelector('input[name="Star Rating"]:checked');
-    const ratingValue = selectedStar ? parseInt(selectedStar.value) : 0;
-
-    if (ratingValue === 0) {
-        e.preventDefault();
-        alert("Please select a star rating to claim your discount.");
+        document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('lead-form');
+    
+    if (!form) {
+        console.error("Form with id 'lead-form' was not found.");
         return;
     }
 
-    if (ratingValue <= 3) {
-        e.preventDefault();
-        showStage('feedback-stage');
-    }
+    form.addEventListener('submit', function(e) {
+        const selectedStar = document.querySelector('input[name="Star Rating"]:checked');
+        const ratingValue = selectedStar ? parseInt(selectedStar.value, 10) : 0;
+
+        if (ratingValue === 0) {
+            e.preventDefault();
+            alert("Please select a star rating to claim your discount.");
+            return;
+        }
+
+        if (ratingValue <= 3) {
+            e.preventDefault();
+            
+            if (typeof showStage === 'function') {
+                showStage('feedback-stage');
+            } else {
+                form.classList.add('hidden');
+                const feedbackContainer = document.getElementById('feedback-stage');
+                if (feedbackContainer) feedbackContainer.classList.remove('hidden');
+            }
+        }
+    });
 });
-    </script>
-</body>
-</html>
