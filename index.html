@@ -102,25 +102,25 @@
 <div class="text-center my-4">
     <p class="text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-2">Rate your store experience today</p>
     <div class="flex justify-center space-x-2 text-2xl direction-rtl">
-       <!-- Star 5 (Visually on the far right, but first in code) -->
-        <input type="radio" id="star5" name="Star Rating" value="1" class="hidden peer/5">
-        <label for="star5" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/5:text-gold-500">&#9733;</label>
+       <!-- Far Left Star (Visual Star 1) -->
+        <input type="radio" id="star1" name="Star Rating" value="1" class="hidden peer/1">
+        <label for="star1" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/1:text-gold-500">&#9733;</label>
 
-        <!-- Star 4 -->
-        <input type="radio" id="star4" name="Star Rating" value="2" class="hidden peer/4">
-        <label for="star4" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/4:text-gold-500">&#9733;</label>
+        <!-- Visual Star 2 -->
+        <input type="radio" id="star2" name="Star Rating" value="2" class="hidden peer/2">
+        <label for="star2" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/2:text-gold-500">&#9733;</label>
 
-        <!-- Star 3 -->
+        <!-- Visual Star 3 -->
         <input type="radio" id="star3" name="Star Rating" value="3" class="hidden peer/3">
         <label for="star3" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/3:text-gold-500">&#9733;</label>
 
-        <!-- Star 2 -->
-        <input type="radio" id="star2" name="Star Rating" value="4" class="hidden peer/2">
-        <label for="star2" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/2:text-gold-500">&#9733;</label>
+        <!-- Visual Star 4 -->
+        <input type="radio" id="star4" name="Star Rating" value="4" class="hidden peer/4">
+        <label for="star4" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/4:text-gold-500">&#9733;</label>
 
-        <!-- Star 1 (Visually on the far left, but last in code) -->
-        <input type="radio" id="star1" name="Star Rating" value="5" class="hidden peer/1">
-        <label for="star1" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/1:text-gold-500">&#9733;</label>
+        <!-- Far Right Star (Visual Star 5) -->
+        <input type="radio" id="star5" name="Star Rating" value="5" class="hidden peer/5">
+        <label for="star5" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/5:text-gold-500">&#9733;</label>
    <button type="submit" class="w-full mt-4 bg-gradient-to-r from-gold-600 to-gold-400 hover:from-gold-500 hover:to-gold-500 text-stone-950 font-bold text-sm py-3.5 rounded-xl shadow-lg transition-all active:scale-[0.98]">
         Claim 10% Off Discount
     </button>
@@ -272,32 +272,26 @@
         }
         document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('lead-form');
-    
-    if (!form) {
-        console.error("Form with id 'lead-form' was not found.");
-        return;
-    }
 
-    form.addEventListener('submit', function(e) {
-        const selectedStar = document.querySelector('input[name="Star Rating"]:checked');
-        const ratingValue = selectedStar ? parseInt(selectedStar.value, 10) : 0;
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            const selectedRadio = document.querySelector('input[name="Star Rating"]:checked');
+            const rating = selectedRadio ? parseInt(selectedRadio.value, 10) : 0;
 
-        if (ratingValue === 0) {
-            e.preventDefault();
-            alert("Please select a star rating to claim your discount.");
-            return;
-        }
-
-        if (ratingValue <= 3) {
-            e.preventDefault();
-            
-            if (typeof showStage === 'function') {
-                showStage('feedback-stage');
-            } else {
-                form.classList.add('hidden');
-                const feedbackContainer = document.getElementById('feedback-stage');
-                if (feedbackContainer) feedbackContainer.classList.remove('hidden');
+            if (rating === 0) {
+                e.preventDefault();
+                alert("Please select a star rating.");
+                return;
             }
-        }
-    });
+
+            // 1, 2, or 3 Stars -> Prevent Formspree & Show Private Feedback Stage
+            if (rating <= 3) {
+                e.preventDefault();
+                if (typeof showStage === 'function') {
+                    showStage('feedback-stage');
+                }
+            }
+            // 4 or 5 Stars -> Let form post to Formspree naturally
+        });
+    }
 });
