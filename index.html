@@ -88,7 +88,7 @@
             </div>
 
             <!-- Lead Form -->
-<form id="lead-form" onsubmit="handleRatingRouting(event)">
+<form id="lead-form" onsubmit="handleRatingRouting(event, this)">
         <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-1">Full Name</label>
         <input type="text" name="Name" required placeholder="Your Name" autocomplete="off"
                class="w-full bg-stone-950 border border-stone-800 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-stone-100 placeholder-stone-600 outline-none transition-all">
@@ -270,11 +270,15 @@
             document.getElementById(stageId).classList.remove('hidden');
         }
        <script>
-function handleRatingRouting(event) {
-    // 1. HARD STOP on standard browser submission
-    event.preventDefault();
+function handleRatingRouting(event, formElement) {
+    // 1. HARD STOP - Physically prevent page reload under ALL circumstances
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
 
-    const form = document.getElementById('lead-form');
+    // Fallback if formElement wasn't passed directly
+    const form = formElement || document.getElementById('lead-form') || document.querySelector('form');
     const checkedStar = document.querySelector('input[name="Star Rating"]:checked');
 
     if (!checkedStar) {
@@ -285,12 +289,12 @@ function handleRatingRouting(event) {
     const starId = checkedStar.id;
     const rawVal = parseInt(checkedStar.value, 10);
 
-    // Check if 1, 2, or 3 stars were clicked
+    // Check if 1, 2, or 3 stars were selected
     const isLowRating = (starId === 'star1' || starId === 'star2' || starId === 'star3' || rawVal <= 3);
 
-    // 2. LOW RATING (1, 2, or 3 Stars): Hide Form & Show Feedback Box (NO Formspree)
+    // 2. LOW RATING (1, 2, or 3 Stars): Hide Form & Force Reveal Feedback Box
     if (isLowRating) {
-        form.style.display = 'none';
+        if (form) form.style.display = 'none';
 
         const feedbackBox = document.getElementById('feedback-stage');
         if (feedbackBox) {
@@ -302,7 +306,7 @@ function handleRatingRouting(event) {
         return false;
     }
 
-    // 3. HIGH RATING (4 or 5 Stars): Submit to Formspree silently in background
+    // 3. HIGH RATING (4 or 5 Stars): Submit silently to Formspree via background fetch
     const formData = new FormData(form);
 
     fetch("https://formspree.io/f/xwvgowqo", {
@@ -313,13 +317,16 @@ function handleRatingRouting(event) {
         if (typeof showStage === 'function') {
             showStage('success-stage');
         } else {
-            alert("Thank you for your rating!");
+            alert("Thank you for your rating! Redirecting to Google Reviews...");
+            // Add your Google Review redirect URL here if desired:
+            // window.location.href = "YOUR_GOOGLE_MAPS_REVIEW_URL";
         }
     }).catch(error => {
         console.error("Submission error:", error);
         alert("There was an error submitting your form. Please try again.");
     });
-
-    return false;
+return false;
 }
 </script>
+</body>
+</html>
