@@ -50,12 +50,26 @@
     <div class="max-w-md w-full bg-stone-900 border border-stone-800 rounded-2xl p-6 shadow-2xl text-center">
         
         <!-- Header / Logo Area -->
-        <div class="mb-6">
+        <div class="mb-5">
             <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gold-500/10 text-gold-500 mb-2">
                 &#9819;
             </div>
             <h1 class="text-xl font-bold tracking-wide uppercase text-stone-100">The Reserve Lounge</h1>
             <p class="text-xs text-stone-400 uppercase tracking-widest mt-1">Exclusive VIP Loyalty Rewards</p>
+        </div>
+
+        <!-- QR CODE & NFC DUAL BADGE AREA -->
+        <div class="mb-6 flex flex-col items-center">
+            <div class="bg-stone-950 p-3 rounded-2xl border border-stone-800 shadow-inner inline-block relative">
+                <!-- Auto-generated QR Code pointing to current page URL -->
+                <img id="page-qr-code" src="" alt="QR Code" class="w-32 h-32 rounded-lg bg-white p-1">
+            </div>
+            <div class="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-800/80 border border-stone-700/50 text-[10px] text-stone-300 font-semibold uppercase tracking-wider">
+                <svg class="w-3.5 h-3.5 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                </svg>
+                <span>SCAN QR OR TAP NFC TO SHARE</span>
+            </div>
         </div>
 
         <!-- STAGE 1: MAIN LEAD FORM -->
@@ -141,14 +155,25 @@
             </div>
         </div>
 
-        <!-- Footer -->
-        <div class="mt-8 pt-4 border-t border-stone-800/50 text-[10px] text-stone-500 uppercase tracking-widest">
-            Engineered by Aura Link Digital
+        <!-- CLICKABLE FOOTER -->
+        <div class="mt-8 pt-4 border-t border-stone-800/50 text-[10px] uppercase tracking-widest">
+            <a href="https://auralinkdigital.com" target="_blank" class="text-stone-500 hover:text-gold-400 transition-colors duration-200">
+                Engineered by Aura Link Digital
+            </a>
         </div>
     </div>
 
-    <!-- CLEAN ROUTING SCRIPT -->
+    <!-- CLEAN ROUTING & DYNAMIC QR SCRIPT -->
     <script>
+        // Generate QR code dynamically based on current page URL
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentUrl = encodeURIComponent(window.location.href);
+            const qrImg = document.getElementById('page-qr-code');
+            if (qrImg) {
+                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${currentUrl}&color=1c1917&bgcolor=ffffff`;
+            }
+        });
+
         function processRatingRouting() {
             const mainForm = document.getElementById('lead-form');
             const checkedStar = mainForm.querySelector('input[name="Star Rating"]:checked');
@@ -170,12 +195,10 @@
 
             // LOW RATING (1, 2, or 3 Stars): Show private feedback box ONLY
             if (rating <= 3) {
-                // Populate hidden fields for private feedback form
                 document.getElementById('fb-name').value = nameVal;
                 document.getElementById('fb-phone').value = phoneVal;
                 document.getElementById('fb-rating').value = rating + " Stars";
 
-                // Swap Stages
                 document.getElementById('lead-stage').classList.add('hidden');
                 document.getElementById('feedback-stage').classList.remove('hidden');
                 return;
@@ -189,7 +212,6 @@
                 body: formData,
                 headers: { 'Accept': 'application/json' }
             }).then(function(response) {
-                // Show success screen and Google Review button
                 document.getElementById('lead-stage').classList.add('hidden');
                 document.getElementById('success-stage').classList.remove('hidden');
                 document.getElementById('google-review-box').classList.remove('hidden');
