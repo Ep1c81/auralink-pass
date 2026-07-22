@@ -1,328 +1,223 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-stone-950 text-stone-100">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIP Club | Premium Spirits & Wine</title>
+    <title>VIP Loyalty Rewards</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- QRCode.js Library CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         gold: {
-                            50: '#FDFBF7',
-                            100: '#FBF7ED',
-                            400: '#E6C687',
-                            500: '#D4AF37', // Classic Metallic Gold
-                            600: '#AA882C'
-                        },
-                        amber: {
-                            950: '#1C0D02'
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
                         }
                     }
                 }
             }
         }
     </script>
-    <!-- FontAwesome for premium icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts for Luxury Aesthetic -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
     <style>
-        .serif-title { font-family: 'Cinzel', serif; }
-        body { font-family: 'Inter', sans-serif; }
-        .luxury-glass {
-            background: rgba(28, 25, 23, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(212, 175, 55, 0.15);
+        /* Reverse flex layout so hovering/checking colors stars from left to right */
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
         }
-        .gold-glow {
-            box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.2);
+        .star-rating input {
+            display: none;
         }
-        /* Style the generated QR canvas slightly rounded and clean */
-        #qrcode img {
-            margin: 0 auto;
-            border-radius: 12px;
-            padding: 8px;
-            background: white;
+        .star-rating label {
+            font-size: 2rem;
+            color: #44403c;
+            cursor: pointer;
+            padding: 0 4px;
+            transition: color 0.2s;
+        }
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input:checked ~ label {
+            color: #eab308;
         }
     </style>
 </head>
-<body class="min-h-full flex flex-col items-center justify-center p-4 relative overflow-x-hidden bg-gradient-to-b from-stone-950 via-amber-950 to-stone-950">
+<body class="bg-stone-950 text-stone-100 min-h-screen flex items-center justify-center p-4">
 
-    <!-- Subtle Premium Background Glows -->
-    <div class="absolute w-[400px] h-[400px] rounded-full bg-gold-500/5 blur-[120px] top-[-10%] left-[-10%]"></div>
-    <div class="absolute w-[400px] h-[400px] rounded-full bg-amber-600/5 blur-[120px] bottom-[-10%] right-[-10%]"></div>
-
-    <!-- Main Card Container -->
-    <div class="w-full max-w-md luxury-glass rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 gold-glow">
+    <div class="max-w-md w-full bg-stone-900 border border-stone-800 rounded-2xl p-6 shadow-2xl text-center">
         
-        <!-- Step 1: The VIP Registration Portal -->
-        <div id="portal-stage">
-            <div class="text-center mb-5">
-                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-gold-500/30 bg-stone-900 mb-3">
-                    <i class="fa-solid fa-crown text-gold-500 text-xl"></i>
-                </div>
-                <h1 class="serif-title text-2xl font-bold tracking-wide text-gold-400">The Reserve Lounge</h1>
-                <p class="text-xs tracking-[0.15em] text-stone-400 uppercase mt-1">Exclusive VIP Loyalty Rewards</p>
+        <!-- Header / Logo Area -->
+        <div class="mb-6">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gold-500/10 text-gold-500 mb-2">
+                &#9819;
             </div>
-
-            <!-- Dynamic Live QR Code Container -->
-        <div class="flex flex-col items-center justify-center bg-stone-900/40 border border-stone-800/60 rounded-2xl p-4 mb-5 text-center">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://auralink-pass.vercel.app" alt="QR Code" class="bg-white p-2 rounded-xl inline-block shadow-inner mb-2 w-32 h-32">
-            <p class="text-[10px] uppercase tracking-widest text-gold-400/80 font-medium">Scan or Tap to Share Card</p>
+            <h1 class="text-xl font-bold tracking-wide uppercase text-stone-100">The Reserve Lounge</h1>
+            <p class="text-xs text-stone-400 uppercase tracking-widest mt-1">Exclusive VIP Loyalty Rewards</p>
         </div>
 
-            <div class="bg-stone-900/80 border border-stone-800 rounded-2xl p-4 text-center mb-5">
-                <p class="text-sm text-stone-300">
-                    Join our VIP circle today to unlock <span class="text-gold-400 font-bold">10% OFF</span> your current purchase & receive weekend flash sale invites.
-                </p>
-            </div>
+        <!-- STAGE 1: MAIN LEAD FORM -->
+        <div id="lead-stage">
+            <p class="text-sm text-stone-300 mb-6 bg-stone-800/50 p-3 rounded-xl border border-stone-700/50">
+                Join our VIP circle today to unlock <strong class="text-gold-400">10% OFF</strong> your current purchase & receive weekend flash sale invites.
+            </p>
 
-            <!-- Lead Form -->
-<form id="lead-form">
-        <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-1">Full Name</label>
-        <input type="text" name="Name" required placeholder="Your Name" autocomplete="off"
-               class="w-full bg-stone-950 border border-stone-800 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-stone-100 placeholder-stone-600 outline-none transition-all">
-    </div>
-    <div>
-        <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-1">WhatsApp Number</label>
-        <input type="tel" name="WhatsApp" required placeholder="+506 8888-8888" autocomplete="off"
-               class="w-full bg-stone-950 border border-stone-800 focus:border-gold-500 rounded-xl px-4 py-3 text-sm text-stone-100 placeholder-stone-600 outline-none transition-all">
-    </div>
-<div class="text-center my-4">
-    <p class="text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-2">Rate your store experience today</p>
-    <div class="flex justify-center space-x-2 text-2xl direction-rtl">
-       <!-- Far Left Star (Visual Star 1) -->
-        <input type="radio" id="star1" name="Star Rating" value="1" class="hidden peer/1">
-        <label for="star1" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/1:text-gold-500">&#9733;</label>
+            <form id="lead-form">
+                <!-- Full Name -->
+                <div class="text-left mb-4">
+                    <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-1">Full Name</label>
+                    <input type="text" name="Full Name" required placeholder="Your Name" class="w-full bg-stone-950 border border-stone-800 rounded-xl px-4 py-3 text-sm text-stone-100 focus:outline-none focus:border-gold-500">
+                </div>
 
-        <!-- Visual Star 2 -->
-        <input type="radio" id="star2" name="Star Rating" value="2" class="hidden peer/2">
-        <label for="star2" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/2:text-gold-500">&#9733;</label>
+                <!-- WhatsApp Number -->
+                <div class="text-left mb-6">
+                    <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-1">WhatsApp Number</label>
+                    <input type="tel" name="WhatsApp Number" required placeholder="+506 8888-8888" class="w-full bg-stone-950 border border-stone-800 rounded-xl px-4 py-3 text-sm text-stone-100 focus:outline-none focus:border-gold-500">
+                </div>
 
-        <!-- Visual Star 3 -->
-        <input type="radio" id="star3" name="Star Rating" value="3" class="hidden peer/3">
-        <label for="star3" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/3:text-gold-500">&#9733;</label>
+                <!-- Star Rating -->
+                <div class="mb-6">
+                    <label class="block text-[11px] uppercase tracking-wider text-stone-400 font-medium mb-2">Rate Your Store Experience Today</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="Star Rating" value="5">
+                        <label for="star5" title="5 stars">&#9733;</label>
 
-        <!-- Visual Star 4 -->
-        <input type="radio" id="star4" name="Star Rating" value="4" class="hidden peer/4">
-        <label for="star4" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/4:text-gold-500">&#9733;</label>
+                        <input type="radio" id="star4" name="Star Rating" value="4">
+                        <label for="star4" title="4 stars">&#9733;</label>
 
-        <!-- Far Right Star (Visual Star 5) -->
-        <input type="radio" id="star5" name="Star Rating" value="5" class="hidden peer/5">
-        <label for="star5" class="cursor-pointer text-stone-700 hover:text-gold-500 peer-checked/5:text-gold-500">&#9733;</label>
-   <button type="submit" class="w-full mt-4 bg-gradient-to-r from-gold-600 to-gold-400 hover:from-gold-500 hover:to-gold-500 text-stone-950 font-bold text-sm py-3.5 rounded-xl shadow-lg transition-all active:scale-[0.98]">
-        Claim 10% Off Discount
-    </button>
+                        <input type="radio" id="star3" name="Star Rating" value="3">
+                        <label for="star3" title="3 stars">&#9733;</label>
+
+                        <input type="radio" id="star2" name="Star Rating" value="2">
+                        <label for="star2" title="2 stars">&#9733;</label>
+
+                        <input type="radio" id="star1" name="Star Rating" value="1">
+                        <label for="star1" title="1 star">&#9733;</label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="button" onclick="processRatingRouting()" class="w-full bg-gradient-to-r from-gold-600 to-gold-400 hover:from-gold-500 hover:to-gold-500 text-stone-950 font-bold text-sm py-3.5 rounded-xl shadow-lg transition-all duration-200">
+                    Claim 10% Off Discount
+                </button>
             </form>
         </div>
 
-        <!-- Step 2: Smart Feedback Routing -->
-        <div id="feedback-stage" class="hidden text-center py-4">
-            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/10 text-amber-500 mb-4">
-                <i class="fa-solid fa-comment-dots text-xl"></i>
-            </div>
-            <h2 class="serif-title text-xl font-bold text-stone-200 mb-2">Thank You For Your Feedback</h2>
-            <p class="text-sm text-stone-400 mb-6">
-                Please let us know how we can improve your next visit. Your message goes directly to our executive management team.
-            </p>
-            <textarea placeholder="Share your thoughts privately..." rows="4" 
-                      class="w-full bg-stone-950 border border-stone-800 focus:border-gold-500 rounded-xl p-3 text-sm text-stone-100 placeholder-stone-600 outline-none transition-all mb-4 resize-none"></textarea>
-            <button onclick="submitPrivateFeedback()" class="w-full bg-stone-900 hover:bg-stone-850 border border-stone-800 text-gold-400 font-semibold text-sm py-3.5 rounded-xl transition-all">
-                Submit Private Review
-            </button>
-        </div>
-
-        <!-- Step 3: Success Reward / Coupon Screen -->
-        <div id="success-stage" class="hidden text-center py-4">
-            <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500/10 text-emerald-400 mb-4">
-                <i class="fa-solid fa-circle-check text-2xl"></i>
-            </div>
-            <h2 class="serif-title text-2xl font-bold text-white mb-1">Welcome to the Club!</h2>
-            <p class="text-xs text-stone-400 tracking-wider uppercase mb-6">Show this screen to the cashier</p>
-            
-            <!-- Digital Barcode/Coupon Simulation -->
-            <div class="bg-white p-6 rounded-2xl inline-block mb-6 shadow-xl">
-                <div class="text-stone-950 serif-title font-bold text-xl tracking-widest border-2 border-dashed border-stone-400 px-4 py-2">
-                    VIP-10-OFF
-                </div>
-                <p class="text-[10px] text-stone-500 mt-2 tracking-normal font-sans">Valid for today's transaction only</p>
+        <!-- STAGE 2: PRIVATE FEEDBACK BOX (Shown for 1, 2, or 3 Stars) -->
+        <div id="feedback-stage" class="hidden">
+            <div class="bg-amber-500/10 border border-amber-500/20 p-4 rounded-xl mb-4">
+                <h3 class="text-gold-400 font-semibold text-sm mb-1">How can we make this right?</h3>
+                <p class="text-xs text-stone-300">We appreciate your honesty. Please leave your feedback directly for management so we can improve your experience.</p>
             </div>
             
-            <p class="text-xs text-stone-400 px-4">
-                Your profile has been activated. You will receive exclusive catalog allocations and flash notifications directly via WhatsApp.
-            </p>
+            <form id="feedback-form" action="https://formspree.io/f/xwvgowqo" method="POST" onsubmit="submitPrivateFeedback(event)">
+                <input type="hidden" id="fb-name" name="Full Name">
+                <input type="hidden" id="fb-phone" name="WhatsApp Number">
+                <input type="hidden" id="fb-rating" name="Star Rating">
+
+                <textarea name="Private Feedback" rows="4" required placeholder="Tell us what went wrong..." class="w-full bg-stone-950 border border-stone-800 rounded-xl p-3 text-sm text-stone-100 focus:outline-none focus:border-gold-500 mb-4"></textarea>
+
+                <button type="submit" class="w-full bg-stone-800 hover:bg-stone-700 text-stone-100 font-bold text-sm py-3 rounded-xl transition">
+                    Send Directly to Management
+                </button>
+            </form>
         </div>
 
+        <!-- STAGE 3: SUCCESS & GOOGLE REVIEW (Shown for 4 or 5 Stars, or after Feedback) -->
+        <div id="success-stage" class="hidden py-4">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 text-2xl mb-3">
+                &#10003;
+            </div>
+            <h2 class="text-lg font-bold text-stone-100 mb-2">You're All Set!</h2>
+            <p class="text-sm text-stone-300 mb-6">Show this confirmation screen to your cashier to claim your <strong>10% OFF discount</strong> immediately.</p>
+            
+            <div id="google-review-box" class="hidden pt-4 border-t border-stone-800">
+                <p class="text-xs text-stone-400 mb-3">Would you mind sharing your 5-star experience on Google?</p>
+                <a href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK" target="_blank" class="inline-block w-full bg-gradient-to-r from-gold-600 to-gold-400 text-stone-950 font-bold text-sm py-3 rounded-xl shadow-lg">
+                    Leave Google Review
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-8 pt-4 border-t border-stone-800/50 text-[10px] text-stone-500 uppercase tracking-widest">
+            Engineered by Aura Link Digital
+        </div>
     </div>
 
-    <!-- Powering Footer -->
-    <p class="mt-6 text-[10px] text-stone-600 tracking-widest uppercase">
-        Engineered by <a href="https://auralinkdigital.com" target="_blank" class="text-gold-500/60 hover:text-gold-400 transition-colors">Aura Link Digital</a>
-    </p>
-
-    <!-- App System Logic Script -->
+    <!-- CLEAN ROUTING SCRIPT -->
     <script>
-        let currentRating = 0;
-        const REAL_GOOGLE_REVIEW_URL = "https://auralinkdigital.com"; 
+        function processRatingRouting() {
+            const mainForm = document.getElementById('lead-form');
+            const checkedStar = mainForm.querySelector('input[name="Star Rating"]:checked');
 
-        // AUTOMATICALLY GENERATE DYNAMIC QR CODE BASED ON CURRENT PAGE LINK
-        window.addEventListener('DOMContentLoaded', (event) => {
-            new QRCode(document.getElementById("qrcode"), {
-                text: window.location.href, // Grabs whatever live Vercel URL this page is running on!
-                width: 128,
-                height: 128,
-                colorDark : "#0c0a09", // stone-950 dark tone
-                colorLight : "#ffffff",
-                correctLevel : QRCode.CorrectLevel.H
+            // Validate inputs
+            if (!mainForm.checkValidity()) {
+                mainForm.reportValidity();
+                return;
+            }
+
+            if (!checkedStar) {
+                alert("Please select a star rating first.");
+                return;
+            }
+
+            const rating = parseInt(checkedStar.value, 10);
+            const nameVal = mainForm.querySelector('input[name="Full Name"]').value;
+            const phoneVal = mainForm.querySelector('input[name="WhatsApp Number"]').value;
+
+            // LOW RATING (1, 2, or 3 Stars): Show private feedback box ONLY
+            if (rating <= 3) {
+                // Populate hidden fields for private feedback form
+                document.getElementById('fb-name').value = nameVal;
+                document.getElementById('fb-phone').value = phoneVal;
+                document.getElementById('fb-rating').value = rating + " Stars";
+
+                // Swap Stages
+                document.getElementById('lead-stage').classList.add('hidden');
+                document.getElementById('feedback-stage').classList.remove('hidden');
+                return;
+            }
+
+            // HIGH RATING (4 or 5 Stars): Submit lead to Formspree silently via background fetch
+            const formData = new FormData(mainForm);
+
+            fetch("https://formspree.io/f/xwvgowqo", {
+                method: "POST",
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(function(response) {
+                // Show success screen and Google Review button
+                document.getElementById('lead-stage').classList.add('hidden');
+                document.getElementById('success-stage').classList.remove('hidden');
+                document.getElementById('google-review-box').classList.remove('hidden');
+            }).catch(function(error) {
+                alert("Thank you! Show this screen to your server for 10% off.");
+                document.getElementById('lead-stage').classList.add('hidden');
+                document.getElementById('success-stage').classList.remove('hidden');
             });
-        });
-
-       function setRating(rating) {
-    currentRating = rating;
-    
-    // 1. Update our hidden form field so Formspree catches the number
-    const hiddenInput = document.getElementById('star-rating-input');
-    if (hiddenInput) {
-        hiddenInput.value = rating;
-    }
-    
-    // 2. Keep the visual star tracking updated
-    const stars = document.querySelectorAll('.star-btn');
-    stars.forEach((star, index) => {
-        if (index < rating) {
-            star.classList.remove('text-stone-700');
-            star.classList.add('text-gold-500');
-        } else {
-            star.classList.remove('text-gold-500');
-            star.classList.add('text-stone-700');
-        }
-    });
-
-    // 3. Smart routing based on rating tier
-    // If it's a 4 or 5 star rating, set Formspree to redirect to Google Reviews
-    // If it's 1-3 stars, leave it blank so it defaults to your internal success page
-    const form = document.getElementById('lead-form');
-    if (form) {
-        if (rating >= 4) {
-            form.setAttribute('action', 'https://formspree.io/f/xwvgowqo?_next=' + encodeURIComponent(REAL_GOOGLE_REVIEW_URL));
-        } else {
-            form.setAttribute('action', 'https://formspree.io/f/xwvgowqo');
-        }
-    }
-}
-
-    // 1. Grab the form element and data
-    const form = document.getElementById('lead-form');
-    const formData = new FormData(form);
-    
-    // 2. Append our active star rating to the form data payload
-    formData.append("Star Rating", currentRating);
-
-    // 3. Send data to Formspree silently in the background
-    // REPLACE THE URL BELOW WITH YOUR ACTUAL FORMSPREE ENDPOINT URL
-    fetch("https://formspree.io/f/xoxovbnd", {
-        method: "POST",
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
-    })
-    .then(response => {
-        // Data is safely logged! Now route the user based on their score
-        if (currentRating >= 4) {
-            window.open(REAL_GOOGLE_REVIEW_URL, '_blank');
-            showStage('success-stage');
-        } else {
-            showStage('feedback-stage');
-        }
-    })
-    .catch(error => {
-        console.error("Form submission error:", error);
-        // Fallback: still show the next screen to the user even if network hiccuped
-        if (currentRating >= 4) {
-            showStage('success-stage');
-        } else {
-            showStage('feedback-stage');
-        }
-    });
-}
-
-        function submitPrivateFeedback() {
-            alert("Thank you! Your feedback has been logged securely.");
-            showStage('success-stage');
         }
 
-        function showStage(stageId) {
-            document.getElementById('portal-stage').classList.add('hidden');
-            document.getElementById('feedback-stage').classList.add('hidden');
-            document.getElementById('success-stage').classList.add('hidden');
-            
-            document.getElementById(stageId).classList.remove('hidden');
+        // Submits the private feedback form to Formspree for management review
+        function submitPrivateFeedback(e) {
+            e.preventDefault();
+            const fbForm = document.getElementById('feedback-form');
+            const formData = new FormData(fbForm);
+
+            fetch(fbForm.action, {
+                method: "POST",
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(function(response) {
+                document.getElementById('feedback-stage').classList.add('hidden');
+                document.getElementById('success-stage').classList.remove('hidden');
+            }).catch(function(error) {
+                document.getElementById('feedback-stage').classList.add('hidden');
+                document.getElementById('success-stage').classList.remove('hidden');
+            });
         }
-     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('lead-form') || document.querySelector('form');
-    if (!form) return;
-
-    form.addEventListener('submit', function(e) {
-        // 1. HARD STOP - Prevents page reload 100% of the time
-        e.preventDefault();
-        e.stopPropagation();
-
-        const checkedStar = form.querySelector('input[name="Star Rating"]:checked');
-
-        if (!checkedStar) {
-            alert("Please select a star rating first.");
-            return;
-        }
-
-        const starId = checkedStar.id;
-        const rawVal = parseInt(checkedStar.value, 10);
-
-        // Check if 1, 2, or 3 stars were selected
-        const isLowRating = (starId === 'star1' || starId === 'star2' || starId === 'star3' || rawVal <= 3);
-
-        // 2. LOW RATING (1, 2, or 3 Stars): Hide Form & Show Private Feedback Box
-        if (isLowRating) {
-            form.style.display = 'none';
-
-            const feedbackBox = document.getElementById('feedback-stage');
-            if (feedbackBox) {
-                feedbackBox.classList.remove('hidden');
-                feedbackBox.style.display = 'block';
-            } else {
-                alert("Thank you for your feedback! We will get in touch soon.");
-            }
-            return;
-        }
-
-        // 3. HIGH RATING (4 or 5 Stars): Submit to Formspree silently in background
-        const formData = new FormData(form);
-
-        fetch("https://formspree.io/f/xwvgowqo", {
-            method: "POST",
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        }).then(function(response) {
-            if (typeof showStage === 'function') {
-                showStage('success-stage');
-            } else {
-                alert("Thank you for your rating! Redirecting to Google Reviews...");
-            }
-        }).catch(function(error) {
-            console.error("Submission error:", error);
-            alert("There was an error submitting your review.");
-        });
-    });
-});
-</script>
+    </script>
+</body>
+</html>
