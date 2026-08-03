@@ -31,8 +31,8 @@
     <main class="w-full max-w-md bg-stone-900 border border-stone-800 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
         
         <!-- HEADER / BRANDING -->
-        <header class="text-center mb-6">
-            <div class="inline-block bg-gradient-to-r from-brandOrange to-brandRed text-black font-black text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-3">
+        <header class="text-center mb-5">
+            <div class="inline-block bg-gradient-to-r from-brandOrange to-brandRed text-black font-black text-[10px] px-3 py-1 rounded-full uppercase tracking-widest mb-2">
                 Punto VIP Oficial
             </div>
             <h1 class="text-3xl font-black text-brandOrange tracking-wider uppercase drop-shadow-sm">
@@ -44,13 +44,34 @@
         </header>
 
         <!-- PROMO OFFER BOX -->
-        <section class="bg-stone-950/80 border border-brandOrange/30 rounded-2xl p-4 text-center mb-6 shadow-inner">
+        <section class="bg-stone-950/80 border border-brandOrange/30 rounded-2xl p-4 text-center mb-5 shadow-inner">
             <span class="bg-brandOrange/20 text-brandOrange border border-brandOrange/40 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
                 Recompensa Inmediata
             </span>
             <h2 class="text-xl font-bold text-white mt-2">10% OFF en tu compra</h2>
             <p class="text-xs text-stone-400 mt-1">
                 Válido en estuches, vidrios templados, cargadores y accesorios.
+            </p>
+        </section>
+
+        <!-- QR CODE & NFC TAP CARD DISPLAY -->
+        <section class="bg-stone-950 border border-stone-800 rounded-2xl p-4 text-center mb-6 relative">
+            
+            <!-- NFC Badge Indicator -->
+            <div class="flex items-center justify-center space-x-2 text-brandOrange text-xs font-bold uppercase tracking-wider mb-3">
+                <i class="fa-solid fa-wifi rotate-90 text-sm"></i>
+                <span>Aproxima tu celular (NFC) o escanea el QR</span>
+            </div>
+
+            <!-- Generated Dynamic QR Code -->
+            <div class="inline-block bg-white p-3 rounded-2xl shadow-lg border-2 border-brandOrange/40">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://auralink-pass.vercel.app/gomobile&color=1a1a1a" 
+                     alt="Go Mobile QR Code" 
+                     class="w-36 h-36 mx-auto rounded-lg" />
+            </div>
+
+            <p class="text-[11px] text-stone-500 mt-2">
+                Toca la tarjeta con tu teléfono o escanea con tu cámara
             </p>
         </section>
 
@@ -75,7 +96,7 @@
             <p class="text-xs text-stone-300 mb-3 font-medium">
                 ¡Muchas gracias! Por favor déjanos tu opinión de 5 estrellas en Google para reclamar tu descuento:
             </p>
-            <!-- LINE 152: DIRECT GOOGLE REVIEW LINK FOR GO MOBILE -->
+            <!-- DIRECT GOOGLE REVIEW LINK FOR GO MOBILE -->
             <a href="https://search.google.com/local/writereview?placeid=ChIJ0TaK7nL7oI8RULwfhQGetGg" target="_blank" class="inline-block w-full bg-gradient-to-r from-brandOrange to-brandRed text-white font-bold text-sm py-3.5 rounded-xl shadow-lg hover:brightness-110 active:scale-[0.98] transition">
                 <i class="fa-brands fa-google mr-2"></i>Dejar Opinión en Google
             </a>
