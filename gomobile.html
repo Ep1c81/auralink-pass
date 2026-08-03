@@ -57,17 +57,17 @@
         <!-- QR CODE & NFC TAP CARD DISPLAY -->
         <section class="bg-stone-950 border border-stone-800 rounded-2xl p-4 text-center mb-6 relative">
             
-            <!-- NFC Badge Indicator -->
+            <!-- NFC Indicator -->
             <div class="flex items-center justify-center space-x-2 text-brandOrange text-xs font-bold uppercase tracking-wider mb-3">
                 <i class="fa-solid fa-wifi rotate-90 text-sm"></i>
                 <span>Aproxima tu celular (NFC) o escanea el QR</span>
             </div>
 
-            <!-- Generated Dynamic QR Code -->
+            <!-- Fixed QR Code targeting /gomobile -->
             <div class="inline-block bg-white p-3 rounded-2xl shadow-lg border-2 border-brandOrange/40">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://auralink-pass.vercel.app/gomobile&color=1a1a1a" 
                      alt="Go Mobile QR Code" 
-                     class="w-36 h-36 mx-auto rounded-lg" />
+                     class="w-32 h-32 mx-auto rounded-lg" />
             </div>
 
             <p class="text-[11px] text-stone-500 mt-2">
