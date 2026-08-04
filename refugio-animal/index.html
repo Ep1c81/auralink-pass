@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refugio Animal de Costa Rica - VIP Pass & Reseñas</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    }
+
+    body {
+      background-color: #121518;
+      background-image: radial-gradient(circle at center, #1c2228 0%, #121518 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: #181c20;
+      border: 1px solid rgba(229, 160, 25, 0.2);
+      border-radius: 20px;
+      padding: 30px 24px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(35, 164, 85, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #23a455, #e5a019, #4a6fa5);
+    }
+
+    .logo-container {
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      max-width: 240px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #a0aab5;
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+
+    /* Star Rating Widget */
+    .stars-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 25px;
+      direction: ltr;
+    }
+
+    .star {
+      font-size: 2.2rem;
+      color: #3a424a;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.2s ease;
+      user-select: none;
+    }
+
+    .star:hover,
+    .star.active {
+      color: #e5a019;
+      transform: scale(1.15);
+      text-shadow: 0 0 10px rgba(229, 160, 25, 0.5);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Redirect Box (4-5 Stars) */
+    .action-box {
+      background: rgba(35, 164, 85, 0.1);
+      border: 1px solid #23a455;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .action-box p {
+      color: #e0e0e0;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .btn-google {
+      display: inline-block;
+      width: 100%;
+      background: #23a455;
+      color: #ffffff;
+      font-weight: 600;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+      box-shadow: 0 4px 12px rgba(35, 164, 85, 0.3);
+    }
+
+    .btn-google:hover {
+      background: #1e8c45;
+    }
+
+    /* Private Feedback Form (1-3 Stars) */
+    .feedback-box {
+      background: rgba(229, 160, 25, 0.08);
+      border: 1px solid #e5a019;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 25px;
+      text-align: left;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .feedback-box h3 {
+      font-size: 1rem;
+      color: #e5a019;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .feedback-box p {
+      font-size: 0.85rem;
+      color: #cccccc;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      color: #a0aab5;
+      margin-bottom: 4px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: #111417;
+      border: 1px solid #2c353e;
+      border-radius: 6px;
+      padding: 10px;
+      color: #ffffff;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #4a6fa5;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: #4a6fa5;
+      color: #ffffff;
+      border: none;
+      font-weight: 600;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      background: #3b5a88;
+    }
+
+    /* QR Code Container */
+    .qr-section {
+      margin-top: 15px;
+      padding-top: 20px;
+      border-top: 1px solid #283038;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .qr-title {
+      font-size: 0.75rem;
+      color: #728090;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .qr-card {
+      background: #ffffff;
+      padding: 8px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .qr-card img {
+      display: block;
+      width: 110px;
+      height: 110px;
+    }
+
+    /* Agency Footer */
+    footer {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #728090;
+    }
+
+    footer a {
+      color: #a0aab5;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    footer a:hover {
+      color: #23a455;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="logo-container">
+      <img src="assets/refugio-animal.png" alt="Refugio Animal de Costa Rica Logo" class="logo" onerror="this.style.display='none'; document.getElementById('alt-heading').classList.remove('hidden');">
+      <h1 id="alt-heading" class="hidden">Refugio Animal de Costa Rica</h1>
+    </div>
+
+    <p class="subtitle">Tu opinión nos ayuda a proteger la vida silvestre local. ¿Cómo fue tu experiencia hoy?</p>
+
+    <!-- Star Rating Selector -->
+    <div class="stars-container" id="starsContainer">
+      <span class="star" data-rating="1" onclick="handleRating(1)">★</span>
+      <span class="star" data-rating="2" onclick="handleRating(2)">★</span>
+      <span class="star" data-rating="3" onclick="handleRating(3)">★</span>
+      <span class="star" data-rating="4" onclick="handleRating(4)">★</span>
+      <span class="star" data-rating="5" onclick="handleRating(5)">★</span>
+    </div>
+
+    <!-- 4-5 Star Action Box -->
+    <div id="googleBox" class="action-box hidden">
+      <p>¡Gracias por tu apoyo a la fauna silvestre! Por favor deja tu reseña en nuestro perfil de Google:</p>
+      <a id="googleBtn" href="#" target="_blank" class="btn-google">Dejar Reseña en Google</a>
+    </div>
+
+    <!-- 1-3 Star Feedback Form -->
+    <div id="privateBox" class="feedback-box hidden">
+      <h3>Queremos mejorar</h3>
+      <p>Envíanos tus comentarios directamente a gerencia para resolver cualquier problema:</p>
+      <form action="https://formspree.io/f/xbdnnbbp" method="POST">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="contact">Teléfono o Correo</label>
+          <input type="text" id="contact" name="contact" placeholder="Contacto de respuesta" required>
+        </div>
+        <div class="form-group">
+          <label for="message">¿En qué podemos mejorar?</label>
+          <textarea id="message" name="message" rows="3" placeholder="Escribe tus comentarios aquí..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Enviar Comentarios Privados</button>
+      </form>
+    </div>
+
+    <!-- Dynamic QR Code -->
+    <div class="qr-section">
+      <span class="qr-title">Escanear para compartir</span>
+      <div class="qr-card">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://pass.auralinkdigital.com/refugio-animal" alt="QR Pass Link">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Powered & engineered by <a href="https://auralinkdigital.com" target="_blank">Auralinkdigital.com</a>
+  </footer>
+
+  <script>
+    // Direct Google Review link using Refugio Animal de Costa Rica Place ID
+    const GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?placeid=ChIJaTPM6gz8oI8RlhTK6wLhSzg";
+
+    function handleRating(stars) {
+      const allStars = document.querySelectorAll('.star');
+      const googleBox = document.getElementById('googleBox');
+      const privateBox = document.getElementById('privateBox');
+      const googleBtn = document.getElementById('googleBtn');
+
+      // Highlight selected stars
+      allStars.forEach(star => {
+        const rating = parseInt(star.getAttribute('data-rating'));
+        if (rating <= stars) {
+          star.classList.add('active');
+        } else {
+          star.classList.remove('active');
+        }
+      });
+
+      // Star-Shielding Branch Logic
+      if (stars >= 4) {
+        privateBox.classList.add('hidden');
+        googleBox.classList.remove('hidden');
+        googleBtn.href = GOOGLE_REVIEW_URL;
+
+        // Auto-redirect after 1.8 seconds for smooth UX
+        setTimeout(() => {
+          window.location.href = GOOGLE_REVIEW_URL;
+        }, 1800);
+      } else {
+        googleBox.classList.add('hidden');
+        privateBox.classList.remove('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
