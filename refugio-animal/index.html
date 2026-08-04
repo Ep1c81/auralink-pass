@@ -49,6 +49,10 @@
 
     .logo-container {
       margin-bottom: 20px;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .logo {
@@ -73,7 +77,6 @@
       line-height: 1.4;
     }
 
-    /* Star Rating Widget */
     .stars-container {
       display: flex;
       justify-content: center;
@@ -101,7 +104,6 @@
       display: none !important;
     }
 
-    /* Redirect Box (4-5 Stars) */
     .action-box {
       background: rgba(35, 164, 85, 0.1);
       border: 1px solid #23a455;
@@ -134,7 +136,6 @@
       background: #1e8c45;
     }
 
-    /* Private Feedback Form (1-3 Stars) */
     .feedback-box {
       background: rgba(229, 160, 25, 0.08);
       border: 1px solid #e5a019;
@@ -203,7 +204,6 @@
       background: #3b5a88;
     }
 
-    /* QR Code Container */
     .qr-section {
       margin-top: 15px;
       padding-top: 20px;
@@ -235,7 +235,6 @@
       height: 110px;
     }
 
-    /* Agency Footer */
     footer {
       margin-top: 25px;
       text-align: center;
@@ -264,13 +263,12 @@
 
   <div class="card">
     <div class="logo-container">
-      <img src="assets/refugio-animal.png" alt="Refugio Animal de Costa Rica Logo" class="logo" onerror="this.style.display='none'; document.getElementById('alt-heading').classList.remove('hidden');">
-      <h1 id="alt-heading" class="hidden">Refugio Animal de Costa Rica</h1>
+      <img id="mainLogo" src="assets/refugio-animal.png" alt="Refugio Animal de Costa Rica Logo" class="logo" onerror="handleLogoError(this)">
+      <h1 id="altHeading" class="hidden">Refugio Animal de Costa Rica</h1>
     </div>
 
     <p class="subtitle">Tu opinión nos ayuda a proteger la vida silvestre local. ¿Cómo fue tu experiencia hoy?</p>
 
-    <!-- Star Rating Selector -->
     <div class="stars-container" id="starsContainer">
       <span class="star" data-rating="1" onclick="handleRating(1)">★</span>
       <span class="star" data-rating="2" onclick="handleRating(2)">★</span>
@@ -279,13 +277,11 @@
       <span class="star" data-rating="5" onclick="handleRating(5)">★</span>
     </div>
 
-    <!-- 4-5 Star Action Box -->
     <div id="googleBox" class="action-box hidden">
       <p>¡Gracias por tu apoyo a la fauna silvestre! Por favor deja tu reseña en nuestro perfil de Google:</p>
       <a id="googleBtn" href="#" target="_blank" class="btn-google">Dejar Reseña en Google</a>
     </div>
 
-    <!-- 1-3 Star Feedback Form -->
     <div id="privateBox" class="feedback-box hidden">
       <h3>Queremos mejorar</h3>
       <p>Envíanos tus comentarios directamente a gerencia para resolver cualquier problema:</p>
@@ -306,7 +302,6 @@
       </form>
     </div>
 
-    <!-- Dynamic QR Code -->
     <div class="qr-section">
       <span class="qr-title">Escanear para compartir</span>
       <div class="qr-card">
@@ -320,7 +315,25 @@
   </footer>
 
   <script>
-    // Direct Google Review link using Refugio Animal de Costa Rica Place ID
+    // Robust multi-path image fallback logic
+    const logoFallbackPaths = [
+      "assets/refugio-animal.png",
+      "assets/Refugio-animal.png",
+      "/refugio-animal/assets/refugio-animal.png",
+      "/refugio-animal/assets/Refugio-animal.png"
+    ];
+    let fallbackIndex = 0;
+
+    function handleLogoError(imgElement) {
+      fallbackIndex++;
+      if (fallbackIndex < logoFallbackPaths.length) {
+        imgElement.src = logoFallbackPaths[fallbackIndex];
+      } else {
+        imgElement.style.display = 'none';
+        document.getElementById('altHeading').classList.remove('hidden');
+      }
+    }
+
     const GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?placeid=ChIJaTPM6gz8oI8RlhTK6wLhSzg";
 
     function handleRating(stars) {
@@ -329,7 +342,6 @@
       const privateBox = document.getElementById('privateBox');
       const googleBtn = document.getElementById('googleBtn');
 
-      // Highlight selected stars
       allStars.forEach(star => {
         const rating = parseInt(star.getAttribute('data-rating'));
         if (rating <= stars) {
@@ -339,13 +351,11 @@
         }
       });
 
-      // Star-Shielding Branch Logic
       if (stars >= 4) {
         privateBox.classList.add('hidden');
         googleBox.classList.remove('hidden');
         googleBtn.href = GOOGLE_REVIEW_URL;
 
-        // Auto-redirect after 1.8 seconds for smooth UX
         setTimeout(() => {
           window.location.href = GOOGLE_REVIEW_URL;
         }, 1800);
