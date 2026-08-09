@@ -24,6 +24,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             max-width: 400px;
             width: 90%;
+            position: relative;
         }
         h1 {
             font-size: 24px;
@@ -87,12 +88,29 @@
             max-width: 150px;
             margin-bottom: 20px;
         }
+        /* Agency Branding Footer Styles */
+        .agency-footer {
+            margin-top: 35px;
+            font-size: 12px;
+            color: #666666;
+            border-top: 1px solid #333333;
+            padding-top: 15px;
+        }
+        .agency-footer a {
+            color: #D4AF37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        .agency-footer a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Clean, foolproof logo name -->
     <img src="/la-liko-store/logo.jpg" alt="La Liko Store Logo" class="logo">
     
     <div id="rating-section">
@@ -108,7 +126,6 @@
         </div>
     </div>
 
-    <!-- Formspree ID perfectly locked in -->
     <form id="feedback-form" action="https://formspree.io/f/xwvgowqo" method="POST">
         <input type="hidden" name="_subject" value="[La Liko Store] Alerta VIP de Cliente">
         <h2>¡Uy! Queremos mejorar.</h2>
@@ -118,6 +135,11 @@
         <textarea name="message" rows="4" placeholder="¿Qué podemos hacer mejor?" required></textarea>
         <button type="submit">Enviar a Gerencia</button>
     </form>
+
+    <!-- Agency Branding -->
+    <div class="agency-footer">
+        Desarrollado y diseñado por <a href="https://auralinkdigital.com" target="_blank">Auralinkdigital.com</a>
+    </div>
 </div>
 
 <script>
@@ -125,7 +147,6 @@
     const ratingSection = document.getElementById('rating-section');
     const feedbackForm = document.getElementById('feedback-form');
     
-    // Exact Google URL successfully integrated
     const googleReviewUrl = "https://www.google.com/search?q=la+liko+store+santa+ana&sca_esv=03da492ea3355410&sxsrf=APpeQntPG15cSuRfW2SWPScBejIN7V3GCw%3A1786316059546&source=hp&ei=GwV5ap65H-Oup84PzsqhmAs&iflsig=ABILxe8AAAAAankTK1ghEVTrwwYesiTH2itSpVsYWF8M&oq=la+liko+store+s&gs_lp=Egdnd3Mtd2l6GgIYAiIPbGEgbGlrbyBzdG9yZSBzKgIIADIEECMYJzIEECMYJzILEAAYgAQYigUYhgMyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogQyBRAAGO8FMgUQABjvBUjfLVDpB1jVGHABeACQAQGYAZkFoAHNHqoBDDAuMy4xMC4xLjAuMbgBAcgBAPgBAZgCD6ACwR2oAgrCAgcQIxjqAhgnwgIQECMYnQYY6AYY3QUY6gIYJ8ICBxAuGOoCGCfCAgsQABiABBiKBRiRAsICExAuGIAEGIoFGEMYsQMYxwEY0QPCAgoQABiABBiKBRhDwgIQEC4YgAQYigUYQxjHARjRA8ICFBAuGIAEGLEDGIsDGJsDGKgDGJoDwgIREAAYgAQYigUYsQMYgwEYiwPCAhQQLhiABBixAxiDARiLAxioAxicA8ICFBAuGIMBGLEDGIAEGIsDGKQDGKgDwgILEAAYgAQYigUYsQPCAhEQLhiABBiKBRixAxjHARivAcICFBAuGIAEGLEDGIMBGIsDGJwDGKgDwgIUEC4YgwEYsQMYgAQYiwMYqAMYpAPCAg4QLhiABBixAxjHARivAcICCBAAGIAEGLEDwgIKEC4YQxiABBiKBcICCBAAGIAEGIsDwgINEAAYgAQYFBiHAhiLA8ICDhAuGIAEGIsDGKgDGKQDwgIKEAAYgAQYFBiHAsICBRAAGIAEwgIMEC4YChgLGLEDGIAEwgIMEAAYgAQYChgLGIsDwgISEC4YChgLGIAEGIsDGJsDGKgDwgIFEC4YgATCAggQABgWGB4YCsICBhAAGBYYHpgDFvEFfx_4BdJVn_WSBwsxLjMuOS4xLjAuMaAHwZIBsgcLMC4zLjkuMS4wLjG4B6odwgcGMi0xMi4zyAdkgAgB&sclient=gws-wiz#lrd=0x8fa0fd000552ffa7:0xffe5a595c5fb7982,3,,,,"; 
 
     stars.forEach(star => {
