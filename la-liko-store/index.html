@@ -83,7 +83,6 @@
         button:hover {
             background-color: #b5952f;
         }
-        /* ADD YOUR LOGO URL BELOW */
         .logo {
             max-width: 150px;
             margin-bottom: 20px;
@@ -93,8 +92,8 @@
 <body>
 
 <div class="container">
-    <!-- Replace src with La Liko's actual logo image URL -->
-    <img src="https://via.placeholder.com/150x50/1e1e1e/D4AF37?text=LA+LIKO+STORE" alt="La Liko Store Logo" class="logo">
+    <!-- Exact logo file name previously verified -->
+    <img src="La-Liko-Store-logo.jpeg" alt="La Liko Store Logo" class="logo">
     
     <div id="rating-section">
         <h1>¡Salud por tu experiencia! 🥂</h1>
@@ -109,8 +108,8 @@
         </div>
     </div>
 
-    <!-- UPDATE ACTION URL WITH NEW FORMSPREE ID -->
-    <form id="feedback-form" action="https://formspree.io/f/INSERT_NEW_FORMSPREE_ID_HERE" method="POST">
+    <!-- Formspree ID injected -->
+    <form id="feedback-form" action="https://formspree.io/f/xwvgowqo" method="POST">
         <input type="hidden" name="_subject" value="[La Liko Store] Alerta VIP de Cliente">
         <h2>¡Uy! Queremos mejorar.</h2>
         <p>Cuéntanos qué falló con tu pedido o visita para solucionarlo de inmediato.</p>
@@ -125,8 +124,9 @@
     const stars = document.querySelectorAll('.star');
     const ratingSection = document.getElementById('rating-section');
     const feedbackForm = document.getElementById('feedback-form');
-    // UPDATE THIS URL TO LA LIKO'S GOOGLE REVIEW LINK
-    const googleReviewUrl = "https://g.page/r/INSERT_LA_LIKO_GOOGLE_LINK/review"; 
+    
+    // Exact Google URL injected from your link
+    const googleReviewUrl = "https://www.google.com/search?q=la+liko+store+santa+ana&sca_esv=03da492ea3355410&sxsrf=APpeQntPG15cSuRfW2SWPScBejIN7V3GCw%3A1786316059546&source=hp&ei=GwV5ap65H-Oup84PzsqhmAs&iflsig=ABILxe8AAAAAankTK1ghEVTrwwYesiTH2itSpVsYWF8M&oq=la+liko+store+s&gs_lp=Egdnd3Mtd2l6GgIYAiIPbGEgbGlrbyBzdG9yZSBzKgIIADIEECMYJzIEECMYJzILEAAYgAQYigUYhgMyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogQyBRAAGO8FMgUQABjvBUjfLVDpB1jVGHABeACQAQGYAZkFoAHNHqoBDDAuMy4xMC4xLjAuMbgBAcgBAPgBAZgCD6ACwR2oAgrCAgcQIxjqAhgnwgIQECMYnQYY6AYY3QUY6gIYJ8ICBxAuGOoCGCfCAgsQABiABBiKBRiRAsICExAuGIAEGIoFGEMYsQMYxwEY0QPCAgoQABiABBiKBRhDwgIQEC4YgAQYigUYQxjHARjRA8ICFBAuGIAEGLEDGIsDGJsDGKgDGJoDwgIREAAYgAQYigUYsQMYgwEYiwPCAhQQLhiABBixAxiDARiLAxioAxicA8ICFBAuGIMBGLEDGIAEGIsDGKQDGKgDwgILEAAYgAQYigUYsQPCAhEQLhiABBiKBRixAxjHARivAcICFBAuGIAEGLEDGIMBGIsDGJwDGKgDwgIUEC4YgwEYsQMYgAQYiwMYqAMYpAPCAg4QLhiABBixAxjHARivAcICCBAAGIAEGLEDwgIKEC4YQxiABBiKBcICCBAAGIAEGIsDwgINEAAYgAQYFBiHAhiLA8ICDhAuGIAEGIsDGKgDGKQDwgIKEAAYgAQYFBiHAsICBRAAGIAEwgIMEC4YChgLGLEDGIAEwgIMEAAYgAQYChgLGIsDwgISEC4YChgLGIAEGIsDGJsDGKgDwgIFEC4YgATCAggQABgWGB4YCsICBhAAGBYYHpgDFvEFfx_4BdJVn_WSBwsxLjMuOS4xLjAuMaAHwZIBsgcLMC4zLjkuMS4wLjG4B6odwgcGMi0xMi4zyAdkgAgB&sclient=gws-wiz#lrd=0x8fa0fd000552ffa7:0xffe5a595c5fb7982,3,,,,"; 
 
     stars.forEach(star => {
         star.addEventListener('click', () => {
