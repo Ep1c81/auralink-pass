@@ -156,7 +156,7 @@
         <button type="submit">Enviar a Gerencia</button>
     </form>
 
-    <!-- On-Page QR Code Section pointing to your landing page shield -->
+    <!-- On-Page QR Code Section -->
     <div class="qr-section">
         <div class="qr-label">Escanear para compartir</div>
         <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://pass.auralinkdigital.com/la-liko-store/" alt="QR Code La Liko Store" class="qr-code-img">
@@ -173,8 +173,8 @@
     const ratingSection = document.getElementById('rating-section');
     const feedbackForm = document.getElementById('feedback-form');
     
-    // Official Google Place ID direct review trigger
-    const googleReviewUrl = "https://search.google.com/local/writereview?placeid=ChIJp_9SBQD9oI8Rgnm_xZWl5f8"; 
+    // Cleaned, bulletproof LRD link to force the Google Review popup
+    const googleReviewUrl = "https://www.google.com/search?q=La+Liko+Store+Santa+Ana#lrd=0x8fa0fd000552ffa7:0xffe5a595c5fb7982,3"; 
 
     stars.forEach(star => {
         star.addEventListener('click', () => {
