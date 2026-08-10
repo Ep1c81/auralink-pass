@@ -156,7 +156,7 @@
         <button type="submit">Enviar a Gerencia</button>
     </form>
 
-    <!-- On-Page QR Code Section -->
+    <!-- On-Page QR Code Section pointing to your landing page shield -->
     <div class="qr-section">
         <div class="qr-label">Escanear para compartir</div>
         <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://pass.auralinkdigital.com/la-liko-store/" alt="QR Code La Liko Store" class="qr-code-img">
@@ -173,7 +173,8 @@
     const ratingSection = document.getElementById('rating-section');
     const feedbackForm = document.getElementById('feedback-form');
     
-    const googleReviewUrl = "https://www.google.com/search?q=la+liko+store+santa+ana&sca_esv=03da492ea3355410&sxsrf=APpeQntPG15cSuRfW2SWPScBejIN7V3GCw%3A1786316059546&source=hp&ei=GwV5ap65H-Oup84PzsqhmAs&iflsig=ABILxe8AAAAAankTK1ghEVTrwwYesiTH2itSpVsYWF8M&oq=la+liko+store+s&gs_lp=Egdnd3Mtd2l6GgIYAiIPbGEgbGlrbyBzdG9yZSBzKgIIADIEECMYJzIEECMYJzILEAAYgAQYigUYhgMyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogQyBRAAGO8FMgUQABjvBUjfLVDpB1jVGHABeACQAQGYAZkFoAHNHqoBDDAuMy4xMC4xLjAuMbgBAcgBAPgBAZgCD6ACwR2oAgrCAgcQIxjqAhgnwgIQECMYnQYY6AYY3QUY6gIYJ8ICBxAuGOoCGCfCAgsQABiABBiKBRiRAsICExAuGIAEGIoFGEMYsQMYxwEY0QPCAgoQABiABBiKBRhDwgIQEC4YgAQYigUYQxjHARjRA8ICFBAuGIAEGLEDGIsDGJsDGKgDGJoDwgIREAAYgAQYigUYsQMYgwEYiwPCAhQQLhiABBixAxiDARiLAxioAxicA8ICFBAuGIMBGLEDGIAEGIsDGKQDGKgDwgILEAAYgAQYigUYsQPCAhEQLhiABBiKBRixAxjHARivAcICFBAuGIAEGLEDGIMBGIsDGJwDGKgDwgIUEC4YgwEYsQMYgAQYiwMYqAMYpAPCAg4QLhiABBixAxjHARivAcICCBAAGIAEGLEDwgIKEC4YQxiABBiKBcICCBAAGIAEGIsDwgINEAAYgAQYFBiHAhiLA8ICDhAuGIAEGIsDGKgDGKQDwgIKEAAYgAQYFBiHAsICBRAAGIAEwgIMEC4YChgLGLEDGIAEwgIMEAAYgAQYChgLGIsDwgISEC4YChgLGIAEGIsDGJsDGKgDwgIFEC4YgATCAggQABgWGB4YCsICBhAAGBYYHpgDFvEFfx_4BdJVn_WSBwsxLjMuOS4xLjAuMaAHwZIBsgcLMC4zLjkuMS4wLjG4B6odwgcGMi0xMi4zyAdkgAgB&sclient=gws-wiz#lrd=0x8fa0fd000552ffa7:0xffe5a595c5fb7982,3,,,,"; 
+    // Official Google Place ID direct review trigger
+    const googleReviewUrl = "https://search.google.com/local/writereview?placeid=ChIJp_9SBQD9oI8Rgnm_xZWl5f8"; 
 
     stars.forEach(star => {
         star.addEventListener('click', () => {
