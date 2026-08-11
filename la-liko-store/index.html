@@ -173,8 +173,8 @@
     const ratingSection = document.getElementById('rating-section');
     const feedbackForm = document.getElementById('feedback-form');
     
-    // Cleaned, bulletproof LRD link to force the Google Review popup
-    const googleReviewUrl = "https://www.google.com/search?q=La+Liko+Store+Santa+Ana#lrd=0x8fa0fd000552ffa7:0xffe5a595c5fb7982,3"; 
+    // Verified Google URL with strict commas appended to trigger modal
+    const googleReviewUrl = "https://www.google.com/search?q=La+Liko+Store+Santa+Ana#lrd=0x8fa0fd000552ffa7:0xffe5a595c5fb7982,3,,,,"; 
 
     stars.forEach(star => {
         star.addEventListener('click', () => {
