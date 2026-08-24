@@ -89,9 +89,38 @@
             margin-bottom: 20px;
             border-radius: 10px;
         }
+        /* Social Links Section (GoMobile Style) */
+        .social-links {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #2a2a2a;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #333;
+            transition: all 0.3s;
+        }
+        .social-links a:hover {
+            border-color: #ff9900;
+            color: #ff9900;
+        }
         /* QR Code Section */
         .qr-section {
-            margin-top: 25px;
+            margin-top: 30px;
             padding-top: 20px;
             border-top: 1px dashed #333;
         }
@@ -132,7 +161,6 @@
 <body>
 
 <div class="container">
-    <!-- Updated Absolute Image Path to fix the broken image icon -->
     <img src="/la-liko-store/La-Liko-Store-logo.jpeg" alt="La Liko Store Logo" class="logo">
     
     <div id="rating-section">
@@ -157,6 +185,16 @@
         <textarea name="message" rows="4" placeholder="¿Qué podemos hacer mejor?" required></textarea>
         <button type="submit">Enviar a Gerencia</button>
     </form>
+
+    <!-- Social & Contact Links (GoMobile Style) -->
+    <div class="social-links">
+        <a href="https://www.instagram.com/lalikostore_" target="_blank">
+            📸 La Liko Store (@lalikostore_) · Santa Ana
+        </a>
+        <a href="https://wa.me/50670404610" target="_blank">
+            💬 WhatsApp: 7040 4610
+        </a>
+    </div>
 
     <!-- On-Page QR Code Section -->
     <div class="qr-section">
