@@ -29,7 +29,7 @@
         h1 {
             font-size: 24px;
             margin-bottom: 10px;
-            color: #D4AF37;
+            color: #ff9900; /* Matching the orange from the La Liko logo */
         }
         p {
             font-size: 14px;
@@ -49,7 +49,7 @@
             transition: color 0.2s;
         }
         .star:hover, .star.active {
-            color: #D4AF37;
+            color: #ff9900;
         }
         #feedback-form {
             display: none;
@@ -68,10 +68,10 @@
         }
         input:focus, textarea:focus {
             outline: none;
-            border-color: #D4AF37;
+            border-color: #ff9900;
         }
         button {
-            background-color: #D4AF37;
+            background-color: #ff9900;
             color: #000;
             padding: 12px;
             border: none;
@@ -82,11 +82,12 @@
             transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #b5952f;
+            background-color: #e68a00;
         }
         .logo {
             max-width: 150px;
             margin-bottom: 20px;
+            border-radius: 10px;
         }
         /* QR Code Section */
         .qr-section {
@@ -117,7 +118,7 @@
             padding-top: 15px;
         }
         .agency-footer a {
-            color: #D4AF37;
+            color: #ff9900;
             text-decoration: none;
             font-weight: 600;
             transition: opacity 0.3s;
@@ -131,7 +132,8 @@
 <body>
 
 <div class="container">
-    <img src="/la-liko-store/logo.jpg" alt="La Liko Store Logo" class="logo">
+    <!-- Updated with the exact image filename provided -->
+    <img src="La-Liko-Store-logo.jpeg" alt="La Liko Store Logo" class="logo">
     
     <div id="rating-section">
         <h1>¡Salud por tu experiencia! 🥂</h1>
@@ -146,6 +148,7 @@
         </div>
     </div>
 
+    <!-- Make sure this Formspree link is the correct one for the La Liko management team -->
     <form id="feedback-form" action="https://formspree.io/f/xwvgowqo" method="POST">
         <input type="hidden" name="_subject" value="[La Liko Store] Alerta VIP de Cliente">
         <h2>¡Uy! Queremos mejorar.</h2>
@@ -173,7 +176,7 @@
     const ratingSection = document.getElementById('rating-section');
     const feedbackForm = document.getElementById('feedback-form');
     
-    // The Golden Ticket: Native Google Deep-Link using the exact verified Place ID
+    // Native Google Deep-Link using the exact verified Place ID for La Liko
     const googleReviewUrl = "https://search.google.com/local/writereview?placeid=ChIJp_9SBQD9oI8Rgnn7xZWl5f8"; 
 
     stars.forEach(star => {
