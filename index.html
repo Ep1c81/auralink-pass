@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Custom Glowing Effects to match your logo */
+        /* Custom Glowing Effects */
         .neon-shadow { box-shadow: 0 0 20px rgba(0, 162, 255, 0.15); }
         .text-glow { text-shadow: 0 0 10px rgba(0, 162, 255, 0.4); }
     </style>
@@ -48,6 +48,16 @@
 
         <!-- STANDARD RATING SECTION (First-time / Default Tap) -->
         <div id="rating-section" class="w-full">
+            
+            <!-- NEW: Functional Interactive QR Code Display -->
+            <div class="mb-8 flex flex-col items-center justify-center">
+                <div class="bg-white p-3 rounded-2xl shadow-[0_0_25px_rgba(0,162,255,0.25)] border border-cyan-500/40 transform hover:scale-105 transition-all duration-300">
+                    <!-- Dynamic QR pointing to your agency pass domain -->
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://pass.auralinkdigital.com&color=050b14&bgcolor=ffffff" alt="Escanear para Demo" class="w-36 h-36 rounded-xl">
+                </div>
+                <p class="text-[10px] font-bold text-cyan-400 uppercase tracking-[0.2em] mt-5"><i class="fa-solid fa-qrcode mr-2"></i>Escanear para Demo</p>
+            </div>
+
             <div class="mb-10">
                 <h2 class="text-2xl font-black tracking-tight mb-3 text-white text-glow">Infraestructura Inteligente</h2>
                 <p class="text-sm text-gray-400 leading-relaxed px-2">
@@ -120,7 +130,7 @@
     <!-- JavaScript -->
     <script>
         const STORAGE_KEY = "auralink_root_vip_visits";
-        // Fully updated with the official g.page short link
+        // Verified active g.page short link
         const GOOGLE_REVIEW_URL = "https://g.page/r/CYP2rpOSalMQEAI/review";
 
         document.addEventListener("DOMContentLoaded", () => {
