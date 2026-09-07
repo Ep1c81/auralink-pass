@@ -3,105 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auralinkdigital | Smart NFC & Reputation Infrastructure</title>
+    <title>Auralink Digital | Smart Reputation Engine</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom Glowing Effects to match your logo */
+        .neon-shadow { box-shadow: 0 0 20px rgba(0, 162, 255, 0.15); }
+        .text-glow { text-shadow: 0 0 10px rgba(0, 162, 255, 0.4); }
+    </style>
 </head>
-<body class="bg-zinc-950 text-zinc-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-black">
+<body class="bg-[#050b14] text-gray-200 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-white">
 
-    <!-- Top Header / Brand Bar -->
-    <header class="w-full py-6 px-4 text-center border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-md mx-auto flex items-center justify-center space-x-3">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
-                <i class="fa-solid fa-bolt text-zinc-950 text-xl font-bold"></i>
-            </div>
-            <div class="text-left">
-                <h1 class="text-lg font-black tracking-wider uppercase bg-gradient-to-r from-white via-zinc-200 to-amber-400 bg-clip-text text-transparent">Auralinkdigital</h1>
-                <p class="text-xs text-amber-500 font-medium tracking-widest uppercase">Smart Reputation Engine</p>
-            </div>
+    <!-- Premium Header with Actual Logo -->
+    <header class="w-full pt-10 pb-4 px-4 text-center z-50">
+        <div class="max-w-md mx-auto flex flex-col items-center justify-center">
+            <!-- IMPORTANT: Make sure your logo is named auralink-logo.jpg in the repo -->
+            <img src="auralink-logo.jpg" alt="Auralink Digital Logo" class="w-56 drop-shadow-[0_0_15px_rgba(0,162,255,0.3)] mb-2">
         </div>
     </header>
 
     <!-- Main Content Area -->
-    <main class="w-full max-w-md mx-auto px-4 py-8 flex-1 flex flex-col justify-center items-center text-center">
+    <main class="w-full max-w-md mx-auto px-5 py-6 flex-1 flex flex-col justify-center items-center text-center relative z-10">
 
-        <!-- GHOST PASS: RETURNING VIP SECTION (Hidden by default) -->
-        <div id="vip-return-section" class="hidden w-full bg-zinc-900/90 border border-amber-500/30 rounded-3xl p-6 shadow-2xl shadow-amber-500/10 mb-6 backdrop-blur-sm">
-            <div class="w-16 h-16 bg-amber-500/10 border border-amber-500/30 rounded-2xl flex items-center justify-center mx-auto mb-4 text-amber-400 text-2xl">
-                <i class="fa-solid fa-crown"></i>
+        <!-- Background Glow Effect -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-blue-600/10 blur-[100px] -z-10 rounded-full"></div>
+
+        <!-- GHOST PASS: RETURNING VIP SECTION -->
+        <div id="vip-return-section" class="hidden w-full bg-[#0a111a]/80 border border-cyan-900/50 rounded-2xl p-8 neon-shadow mb-6 backdrop-blur-md">
+            <div class="w-16 h-16 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/30 rounded-full flex items-center justify-center mx-auto mb-5 text-cyan-400 text-2xl">
+                <i class="fa-solid fa-microchip"></i>
             </div>
-            <h2 class="text-xl font-bold text-white mb-2">¡Bienvenido de nuevo, Socio!</h2>
-            <p id="visit-counter" class="text-sm text-zinc-300 mb-6 font-medium">Registrando tu visita...</p>
-            <div class="p-4 bg-zinc-950 rounded-2xl border border-zinc-800 text-left mb-6">
-                <p class="text-xs text-amber-400 font-bold uppercase tracking-wider mb-1"><i class="fa-solid fa-shield-halved mr-1"></i> Beneficio Activo</p>
-                <p class="text-sm text-zinc-300">Gracias por confiar en nuestra infraestructura tecnológica. Estás impulsando el estándar digital de Costa Rica.</p>
+            <h2 class="text-xl font-bold text-white mb-2 tracking-wide">Acceso Autorizado</h2>
+            <p id="visit-counter" class="text-sm text-gray-400 mb-6">Dispositivo reconocido. Sesión iniciada.</p>
+            <div class="p-5 bg-[#050b14] rounded-xl border border-gray-800 text-left mb-6">
+                <p class="text-xs text-cyan-400 font-bold uppercase tracking-widest mb-2"><i class="fa-solid fa-satellite-dish mr-2"></i> Conexión Establecida</p>
+                <p class="text-sm text-gray-400 leading-relaxed">Su infraestructura NFC está operando al máximo rendimiento. Bienvenido al estándar digital.</p>
             </div>
-            <a href="https://auralinkdigital.com" target="_blank" class="w-full py-3.5 px-4 bg-gradient-to-r from-amber-400 to-amber-600 text-zinc-950 font-bold rounded-xl shadow-lg shadow-amber-500/20 hover:opacity-90 transition-all flex items-center justify-center space-x-2">
-                <span>Visitar Sitio Oficial</span>
+            <a href="https://auralinkdigital.com" target="_blank" class="w-full py-4 bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-bold tracking-wide rounded-xl shadow-[0_0_15px_rgba(0,162,255,0.4)] hover:opacity-90 transition-all flex items-center justify-center space-x-3">
+                <span>Ingresar al Portal</span>
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
 
         <!-- STANDARD RATING SECTION (First-time / Default Tap) -->
         <div id="rating-section" class="w-full">
-            <div class="mb-8">
-                <h2 class="text-2xl font-bold tracking-tight mb-2 text-white">¡Salud por la innovación! 🥂</h2>
-                <p class="text-sm text-zinc-400 leading-relaxed">
-                    Queremos saber cómo calificarías tu experiencia con nuestra infraestructura. Califícanos para desbloquear nuestro canal prioritario.
+            <div class="mb-10">
+                <h2 class="text-2xl font-black tracking-tight mb-3 text-white text-glow">Infraestructura Inteligente</h2>
+                <p class="text-sm text-gray-400 leading-relaxed px-2">
+                    Experimenta la tecnología que está redefiniendo la reputación corporativa. Califica el rendimiento de nuestro sistema para acceder a una demostración exclusiva.
                 </p>
             </div>
 
             <!-- Star Interactive Rating Component -->
-            <div class="bg-zinc-900/60 border border-zinc-900 rounded-3xl p-6 shadow-xl mb-6 backdrop-blur-sm">
-                <p class="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-4">Toca una estrella para calificar</p>
-                <div class="flex justify-center space-x-2 text-3xl" id="star-container">
-                    <button onclick="handleRating(1)" class="text-zinc-700 hover:text-amber-400 hover:scale-110 transition-all focus:outline-none p-2"><i class="fa-solid fa-star"></i></button>
-                    <button onclick="handleRating(2)" class="text-zinc-700 hover:text-amber-400 hover:scale-110 transition-all focus:outline-none p-2"><i class="fa-solid fa-star"></i></button>
-                    <button onclick="handleRating(3)" class="text-zinc-700 hover:text-amber-400 hover:scale-110 transition-all focus:outline-none p-2"><i class="fa-solid fa-star"></i></button>
-                    <button onclick="handleRating(4)" class="text-zinc-700 hover:text-amber-400 hover:scale-110 transition-all focus:outline-none p-2"><i class="fa-solid fa-star"></i></button>
-                    <button onclick="handleRating(5)" class="text-zinc-700 hover:text-amber-400 hover:scale-110 transition-all focus:outline-none p-2"><i class="fa-solid fa-star"></i></button>
+            <div class="bg-[#0a111a]/80 border border-gray-800 rounded-2xl p-8 neon-shadow mb-6 backdrop-blur-md">
+                <p class="text-[10px] font-bold text-cyan-500/70 uppercase tracking-[0.2em] mb-5">Inicia el Diagnóstico</p>
+                <div class="flex justify-center space-x-3 text-4xl" id="star-container">
+                    <button onclick="handleRating(1)" class="text-gray-700 hover:text-cyan-400 hover:drop-shadow-[0_0_10px_rgba(0,162,255,0.8)] transition-all focus:outline-none"><i class="fa-solid fa-star"></i></button>
+                    <button onclick="handleRating(2)" class="text-gray-700 hover:text-cyan-400 hover:drop-shadow-[0_0_10px_rgba(0,162,255,0.8)] transition-all focus:outline-none"><i class="fa-solid fa-star"></i></button>
+                    <button onclick="handleRating(3)" class="text-gray-700 hover:text-cyan-400 hover:drop-shadow-[0_0_10px_rgba(0,162,255,0.8)] transition-all focus:outline-none"><i class="fa-solid fa-star"></i></button>
+                    <button onclick="handleRating(4)" class="text-gray-700 hover:text-cyan-400 hover:drop-shadow-[0_0_10px_rgba(0,162,255,0.8)] transition-all focus:outline-none"><i class="fa-solid fa-star"></i></button>
+                    <button onclick="handleRating(5)" class="text-gray-700 hover:text-cyan-400 hover:drop-shadow-[0_0_10px_rgba(0,162,255,0.8)] transition-all focus:outline-none"><i class="fa-solid fa-star"></i></button>
                 </div>
             </div>
 
             <!-- Google Redirect Box (Appears on 4-5 stars) -->
-            <div id="google-redirect-box" class="hidden w-full bg-gradient-to-br from-amber-500/10 to-zinc-900 border border-amber-500/30 rounded-3xl p-6 shadow-2xl animate-fade-in mb-6">
-                <div class="w-12 h-12 bg-amber-500/20 text-amber-400 rounded-2xl flex items-center justify-center mx-auto mb-3 text-xl">
-                    <i class="fa-solid fa-star"></i>
+            <div id="google-redirect-box" class="hidden w-full bg-gradient-to-br from-cyan-900/30 to-[#050b14] border border-cyan-500/30 rounded-2xl p-8 shadow-[0_0_20px_rgba(0,162,255,0.2)] animate-fade-in mb-6">
+                <div class="w-14 h-14 bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                    <i class="fa-solid fa-check"></i>
                 </div>
-                <h3 class="font-bold text-white mb-1">¡Gracias por el apoyo!</h3>
-                <p class="text-xs text-zinc-300 mb-4">Te estamos redirigiendo a nuestro perfil de Google...</p>
-                <a id="google-btn" href="#" class="w-full block py-3 bg-amber-500 text-zinc-950 font-bold rounded-xl shadow-lg hover:bg-amber-400 transition-all">
-                    Dejar Reseña Ahora
+                <h3 class="font-bold text-white mb-2 text-lg">Rendimiento Óptimo</h3>
+                <p class="text-xs text-gray-400 mb-6">Estableciendo conexión segura con la plataforma de reseñas...</p>
+                <a id="google-btn" href="#" class="w-full block py-4 bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-bold tracking-wide rounded-xl shadow-[0_0_15px_rgba(0,162,255,0.4)] hover:opacity-90 transition-all">
+                    Continuar
                 </a>
             </div>
 
             <!-- Private Feedback Box (Appears on 1-3 stars) -->
-            <div id="private-feedback-box" class="hidden w-full bg-zinc-900 border border-zinc-800 rounded-3xl p-6 shadow-xl text-left animate-fade-in mb-6">
-                <div class="flex items-center space-x-3 mb-4">
-                    <div class="w-10 h-10 bg-zinc-800 text-amber-400 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <i class="fa-solid fa-headset"></i>
+            <div id="private-feedback-box" class="hidden w-full bg-[#0a111a] border border-gray-800 rounded-2xl p-6 shadow-xl text-left animate-fade-in mb-6">
+                <div class="flex items-center space-x-4 mb-5">
+                    <div class="w-12 h-12 bg-[#050b14] border border-gray-700 text-cyan-500 rounded-full flex items-center justify-center flex-shrink-0 text-lg">
+                        <i class="fa-solid fa-server"></i>
                     </div>
                     <div>
-                        <h3 class="text-sm font-bold text-white">Queremos mejorar</h3>
-                        <p class="text-xs text-zinc-400">Cuéntanos qué falló para solucionarlo de inmediato.</p>
+                        <h3 class="text-sm font-bold text-white tracking-wide">Reporte de Sistema</h3>
+                        <p class="text-xs text-gray-400">Transmisión encriptada a nuestro equipo técnico.</p>
                     </div>
                 </div>
                 
-                <!-- Formspree Endpoint for Auralinkdigital -->
-                <form action="https://formspree.io/f/xeaqaaro" method="POST" class="space-y-3">
-                    <input type="hidden" name="source" value="Auralink Root Agency Tap - Low Rating Feedback">
+                <form action="https://formspree.io/f/xeaqaaro" method="POST" class="space-y-4">
+                    <input type="hidden" name="source" value="Auralink Root Agency - System Feedback">
                     <div>
-                        <input type="text" name="name" placeholder="Tu Nombre" required class="w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-amber-500 transition-colors">
+                        <input type="text" name="name" placeholder="Nombre de la Empresa / Contacto" required class="w-full px-4 py-3 bg-[#050b14] border border-gray-800 rounded-xl text-sm text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500 transition-colors">
                     </div>
                     <div>
-                        <input type="tel" name="phone" placeholder="Tu Teléfono / WhatsApp" required class="w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-amber-500 transition-colors">
+                        <input type="tel" name="phone" placeholder="Número de Contacto" required class="w-full px-4 py-3 bg-[#050b14] border border-gray-800 rounded-xl text-sm text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500 transition-colors">
                     </div>
                     <div>
-                        <textarea name="message" rows="3" placeholder="¿Cómo podemos mejorar tu experiencia?" required class="w-full px-4 py-2.5 bg-zinc-950 border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-amber-500 transition-colors resize-none"></textarea>
+                        <textarea name="message" rows="3" placeholder="Detalle sus requerimientos o área de mejora..." required class="w-full px-4 py-3 bg-[#050b14] border border-gray-800 rounded-xl text-sm text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500 transition-colors resize-none"></textarea>
                     </div>
-                    <button type="submit" class="w-full py-3 bg-zinc-100 text-zinc-950 font-bold rounded-xl text-sm hover:bg-white transition-all shadow-md">
-                        Enviar Comentario Privado
+                    <button type="submit" class="w-full py-4 bg-gray-200 text-[#050b14] font-bold rounded-xl text-sm hover:bg-white transition-all shadow-md tracking-wide">
+                        Enviar Transmisión
                     </button>
                 </form>
             </div>
@@ -109,35 +111,30 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="w-full py-6 px-4 text-center border-t border-zinc-900 text-xs text-zinc-600">
-        <p class="font-medium text-zinc-500">Powered by <span class="text-amber-500 font-semibold">Auralinkdigital.com</span></p>
-        <p class="mt-1">Smart NFC & Reputation Infrastructure • Costa Rica</p>
+    <!-- Footer updated to match Logo Tagline -->
+    <footer class="w-full py-8 px-4 text-center text-[10px] text-gray-500 uppercase tracking-[0.15em]">
+        <p class="mb-2"><span class="text-cyan-500 font-bold">Auralink Digital</span></p>
+        <p class="text-gray-600">DESIGN &nbsp;•&nbsp; CODE &nbsp;•&nbsp; AUTOMATE &nbsp;•&nbsp; GROW</p>
     </footer>
 
-    <!-- JavaScript for Ghost Pass & Rating Logic -->
+    <!-- JavaScript -->
     <script>
-        // --- GHOST PASS LOGIC ---
         const STORAGE_KEY = "auralink_root_vip_visits";
+        // Your exact Google Place ID is hardcoded here
         const GOOGLE_REVIEW_URL = "https://search.google.com/local/writereview?placeid=Eh1Bdi4gNDAsIFNhbiBKb3PDqSwgQ29zdGEgUmljYSIuKiwKFAoSCdHRVIQ_46CPEWBsi4q6smf5EhQKEgnFFQ3FQuOgjxE26ENkKayO_w";
 
         document.addEventListener("DOMContentLoaded", () => {
             let visits = parseInt(localStorage.getItem(STORAGE_KEY)) || 0;
-            
-            // Increment visit count on tap
             visits++;
             localStorage.setItem(STORAGE_KEY, visits);
 
             const ratingSection = document.getElementById('rating-section');
             const vipReturnSection = document.getElementById('vip-return-section');
-            const visitCounterText = document.getElementById('visit-counter');
-
+            
             if (visits > 1) {
-                // RETURNING VIP CUSTOMER DETECTED (Ghost Pass Activated)
                 if (ratingSection) ratingSection.style.display = 'none';
                 if (vipReturnSection) {
                     vipReturnSection.classList.remove('hidden');
-                    visitCounterText.innerText = `¡Visita #${visits} registrada desde tu dispositivo!`;
                 }
             }
         });
@@ -146,6 +143,18 @@
             const privateBox = document.getElementById('private-feedback-box');
             const googleBox = document.getElementById('google-redirect-box');
             const googleBtn = document.getElementById('google-btn');
+
+            // Reset active states on stars
+            const starBtns = document.querySelectorAll('#star-container button');
+            starBtns.forEach((btn, index) => {
+                if (index < stars) {
+                    btn.classList.remove('text-gray-700');
+                    btn.classList.add('text-cyan-400', 'drop-shadow-[0_0_10px_rgba(0,162,255,0.8)]');
+                } else {
+                    btn.classList.add('text-gray-700');
+                    btn.classList.remove('text-cyan-400', 'drop-shadow-[0_0_10px_rgba(0,162,255,0.8)]');
+                }
+            });
 
             if (stars >= 4) {
                 privateBox.classList.add('hidden');
