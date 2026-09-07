@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auralink Digital | Smart Reputation Engine</title>
+    <title>Auralinkdigital.com | Smart Reputation Engine</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,7 +19,7 @@
     <header class="w-full pt-10 pb-4 px-4 text-center z-50">
         <div class="max-w-md mx-auto flex flex-col items-center justify-center">
             <!-- Pulls auralink-logo.jpg directly from your root folder -->
-            <img src="auralink-logo.jpg" alt="Auralink Digital Logo" class="w-56 drop-shadow-[0_0_15px_rgba(0,162,255,0.3)] mb-2">
+            <img src="auralink-logo.jpg" alt="Auralinkdigital.com Logo" class="w-56 drop-shadow-[0_0_15px_rgba(0,162,255,0.3)] mb-2">
         </div>
     </header>
 
@@ -29,27 +29,10 @@
         <!-- Background Glow Effect -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-blue-600/10 blur-[100px] -z-10 rounded-full"></div>
 
-        <!-- GHOST PASS: RETURNING VIP SECTION -->
-        <div id="vip-return-section" class="hidden w-full bg-[#0a111a]/80 border border-cyan-900/50 rounded-2xl p-8 neon-shadow mb-6 backdrop-blur-md">
-            <div class="w-16 h-16 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/30 rounded-full flex items-center justify-center mx-auto mb-5 text-cyan-400 text-2xl">
-                <i class="fa-solid fa-microchip"></i>
-            </div>
-            <h2 class="text-xl font-bold text-white mb-2 tracking-wide">Acceso Autorizado</h2>
-            <p id="visit-counter" class="text-sm text-gray-400 mb-6">Dispositivo reconocido. Sesión iniciada.</p>
-            <div class="p-5 bg-[#050b14] rounded-xl border border-gray-800 text-left mb-6">
-                <p class="text-xs text-cyan-400 font-bold uppercase tracking-widest mb-2"><i class="fa-solid fa-satellite-dish mr-2"></i> Conexión Establecida</p>
-                <p class="text-sm text-gray-400 leading-relaxed">Su infraestructura NFC está operando al máximo rendimiento. Bienvenido al estándar digital.</p>
-            </div>
-            <a href="https://auralinkdigital.com" target="_blank" class="w-full py-4 bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-bold tracking-wide rounded-xl shadow-[0_0_15px_rgba(0,162,255,0.4)] hover:opacity-90 transition-all flex items-center justify-center space-x-3">
-                <span>Ingresar al Portal Oficial</span>
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-        </div>
-
-        <!-- STANDARD RATING SECTION (First-time / Default Tap) -->
+        <!-- STANDARD RATING SECTION (Always Active for Unlimited Demos) -->
         <div id="rating-section" class="w-full">
             
-            <!-- NEW: Functional Interactive QR Code Display -->
+            <!-- Functional Interactive QR Code Display -->
             <div class="mb-8 flex flex-col items-center justify-center">
                 <div class="bg-white p-3 rounded-2xl shadow-[0_0_25px_rgba(0,162,255,0.25)] border border-cyan-500/40 transform hover:scale-105 transition-all duration-300">
                     <!-- Dynamic QR pointing to your agency pass domain -->
@@ -123,31 +106,14 @@
 
     <!-- Footer updated to match Logo Tagline -->
     <footer class="w-full py-8 px-4 text-center text-[10px] text-gray-500 uppercase tracking-[0.15em]">
-        <p class="mb-2"><span class="text-cyan-500 font-bold">Auralink Digital</span></p>
+        <p class="mb-2"><span class="text-cyan-500 font-bold">Auralinkdigital.com</span></p>
         <p class="text-gray-600">DESIGN &nbsp;•&nbsp; CODE &nbsp;•&nbsp; AUTOMATE &nbsp;•&nbsp; GROW</p>
     </footer>
 
     <!-- JavaScript -->
     <script>
-        const STORAGE_KEY = "auralink_root_vip_visits";
         // Verified active g.page short link
         const GOOGLE_REVIEW_URL = "https://g.page/r/CYP2rpOSalMQEAI/review";
-
-        document.addEventListener("DOMContentLoaded", () => {
-            let visits = parseInt(localStorage.getItem(STORAGE_KEY)) || 0;
-            visits++;
-            localStorage.setItem(STORAGE_KEY, visits);
-
-            const ratingSection = document.getElementById('rating-section');
-            const vipReturnSection = document.getElementById('vip-return-section');
-            
-            if (visits > 1) {
-                if (ratingSection) ratingSection.style.display = 'none';
-                if (vipReturnSection) {
-                    vipReturnSection.classList.remove('hidden');
-                }
-            }
-        });
 
         function handleRating(stars) {
             const privateBox = document.getElementById('private-feedback-box');
