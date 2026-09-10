@@ -1,14 +1,23 @@
-<!-- Tarjeta de Lealtad VIP con QR, Logo y Estrellas -->
+<!-- Tarjeta de Lealtad VIP con Filtro de Estrellas Interactivo y QR -->
 <div style="background-color: #171717; color: #ffffff; border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 1.25rem; padding: 2rem; max-width: 32rem; margin: 0 auto; text-align: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
   
-  <!-- Barbershop Branding / Logo Area -->
-  <div style="margin-bottom: 1.25rem;">
+  <!-- Barbershop Logo & Branding Area -->
+  <div style="margin-bottom: 1.25rem; display: flex; flex-direction: column; align-items: center;">
+    <img src="assets/logo.png" alt="NS Barber Shop Logo" style="max-height: 3.5rem; width: auto; margin-bottom: 0.5rem; object-fit: contain;" onerror="this.style.display='none'" />
+    
     <h2 style="font-size: 1.5rem; font-weight: 900; letter-spacing: 0.05em; color: #ffffff; margin: 0;">NS BARBER SHOP</h2>
     <p style="font-size: 0.75rem; letter-spacing: 0.2em; color: #fbbf24; text-transform: uppercase; margin-top: 0.25rem;">Experiencia VIP</p>
     
-    <!-- 5 Star Google Rating Display -->
-    <div style="color: #fbbf24; font-size: 0.875rem; margin-top: 0.5rem; letter-spacing: 0.15em;">
-      ★★★★★
+    <!-- Interactive Review Filter Widget -->
+    <div style="margin-top: 0.75rem;" id="review-stars-container">
+      <p style="font-size: 0.7rem; color: #a3a3a3; margin-bottom: 0.35rem; text-transform: uppercase; letter-spacing: 0.05em;">¿Cómo calificarías tu experiencia hoy?</p>
+      <div style="display: inline-flex; gap: 0.35rem; cursor: pointer;" id="star-rating-widget">
+        <span onclick="handleStarRating(1)" onmouseover="highlightStars(1)" onmouseout="resetStars()" style="color: #525252; font-size: 1.5rem; transition: color 0.2s;" data-value="1">★</span>
+        <span onclick="handleStarRating(2)" onmouseover="highlightStars(2)" onmouseout="resetStars()" style="color: #525252; font-size: 1.5rem; transition: color 0.2s;" data-value="2">★</span>
+        <span onclick="handleStarRating(3)" onmouseover="highlightStars(3)" onmouseout="resetStars()" style="color: #525252; font-size: 1.5rem; transition: color 0.2s;" data-value="3">★</span>
+        <span onclick="handleStarRating(4)" onmouseover="highlightStars(4)" onmouseout="resetStars()" style="color: #525252; font-size: 1.5rem; transition: color 0.2s;" data-value="4">★</span>
+        <span onclick="handleStarRating(5)" onmouseover="highlightStars(5)" onmouseout="resetStars()" style="color: #525252; font-size: 1.5rem; transition: color 0.2s;" data-value="5">★</span>
+      </div>
     </div>
   </div>
 
@@ -73,10 +82,26 @@
 
   <!-- QR Code Verification Section -->
   <div style="background-color: #0f0f0f; border: 1px dashed rgba(245, 158, 11, 0.3); border-radius: 0.75rem; padding: 1rem; display: flex; align-items: center; justify-content: center; gap: 1rem;">
-    <div style="background-color: #ffffff; padding: 0.35rem; border-radius: 0.5rem; display: inline-flex;">
-      <div style="width: 4rem; height: 4rem; background-color: #171717; display: flex; align-items: center; justify-content: center; color: #fbbf24; font-size: 0.65rem; text-align: center; font-weight: bold; border-radius: 0.25rem;">
-        SCAN QR
-      </div>
+    <div style="background-color: #ffffff; padding: 0.35rem; border-radius: 0.5rem; display: inline-flex; flex-shrink: 0;">
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 2H10V10H2V2Z" fill="black"/>
+        <path d="M4 4H8V8H4V4Z" fill="white"/>
+        <path d="M6 6H6.01V6.01H6V6Z" fill="black"/>
+        <path d="M14 2H22V10H14V2Z" fill="black"/>
+        <path d="M16 4H20V8H16V4Z" fill="white"/>
+        <path d="M18 6H18.01V6.01H18V6Z" fill="black"/>
+        <path d="M2 14H10V22H2V14Z" fill="black"/>
+        <path d="M4 16H8V20H4V16Z" fill="white"/>
+        <path d="M6 18H6.01V6.01H6V18Z" fill="black"/>
+        <path d="M14 14H17V17H14V14Z" fill="black"/>
+        <path d="M19 14H22V17H19V14Z" fill="black"/>
+        <path d="M14 19H17V22H14V19Z" fill="black"/>
+        <path d="M19 19H22V22H19V19Z" fill="black"/>
+        <path d="M11 2H12V7H11V2Z" fill="black"/>
+        <path d="M11 11H13V13H11V11Z" fill="black"/>
+        <path d="M17 11H22V12H17V11Z" fill="black"/>
+        <path d="M11 17H13V22H11V17Z" fill="black"/>
+      </svg>
     </div>
     <div style="text-align: left;">
       <p style="font-size: 0.75rem; font-weight: bold; color: #ffffff; margin: 0 0 0.25rem 0;">Pase Verificado</p>
@@ -85,3 +110,35 @@
   </div>
 
 </div>
+
+<!-- Script for Interactive Review Filter Logic -->
+<script>
+  function highlightStars(rating) {
+    const stars = document.querySelectorAll('#star-rating-widget span');
+    stars.forEach((star, index) => {
+      if (index < rating) {
+        star.style.color = '#fbbf24';
+      } else {
+        star.style.color = '#525252';
+      }
+    });
+  }
+
+  function resetStars() {
+    const stars = document.querySelectorAll('#star-rating-widget span');
+    stars.forEach(star => {
+      star.style.color = '#525252';
+    });
+  }
+
+  function handleStarRating(rating) {
+    if (rating >= 4) {
+      // Redirect to Google Maps review link (replace with your actual Google review link)
+      window.location.href = "https://g.page/r/YOUR_GOOGLE_BUSINESS_ID/review";
+    } else {
+      // Redirect or show internal feedback form for 1-3 stars
+      alert("¡Gracias por tus comentarios! Nos ayuda a mejorar nuestro servicio VIP.");
+      // You can replace the alert above with routing to an internal feedback URL or modal
+    }
+  }
+</script>
