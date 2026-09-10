@@ -1,60 +1,63 @@
 <!-- Tarjeta de Lealtad VIP (Punch Card) -->
-<div class="w-full max-w-md mx-auto bg-neutral-900 border border-amber-500/30 rounded-2xl p-6 shadow-2xl text-center text-white">
+<div style="background-color: #171717; color: #ffffff; border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 1rem; padding: 1.5rem; max-width: 28rem; margin: 0 auto; text-align: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
   
   <!-- Header Badge -->
-  <div class="inline-block border border-amber-500/50 rounded-full px-4 py-1 mb-4">
-    <span class="text-xs uppercase tracking-widest text-amber-400 font-semibold">Tarjeta de Lealtad VIP</span>
+  <div style="display: inline-block; border: 1px solid rgba(245, 158, 11, 0.5); border-radius: 9999px; padding: 0.25rem 1rem; margin-bottom: 1rem;">
+    <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #fbbf24; font-weight: 600;">Tarjeta de Lealtad VIP</span>
   </div>
 
   <!-- Main Title -->
-  <h3 class="text-xl font-bold tracking-tight mb-2">Acumula 5 cortes y gana</h3>
-  <p class="text-xs text-neutral-400 mb-6">Muestra esta pantalla a tu barbero en cada visita para sellar tu pase.</p>
+  <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem; color: #ffffff;">Acumula 5 cortes y gana</h3>
+  <p style="font-size: 0.75rem; color: #a3a3a3; margin-bottom: 1.5rem;">Muestra esta pantalla a tu barbero en cada visita para sellar tu pase.</p>
 
   <!-- Punch Grid (5 Slots) -->
-  <div class="grid grid-cols-5 gap-2 mb-6">
-    <!-- Corte 1 (Stamped Example) -->
-    <div class="flex flex-col items-center">
-      <div class="w-12 h-12 rounded-xl bg-amber-500/20 border-2 border-amber-500 flex items-center justify-center text-amber-400 shadow-inner">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+  <div style="display: flex; justify-content: space-between; gap: 0.5rem; margin-bottom: 1.5rem;">
+    
+    <!-- Corte 1 (Stamped) -->
+    <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background-color: rgba(245, 158, 11, 0.2); border: 2px solid #f59e0b; display: flex; align-items: center; justify-content: center; color: #fbbf24; font-weight: bold; font-size: 1.25rem;">
+        ✓
       </div>
-      <span class="text-[10px] text-neutral-400 mt-1">1er</span>
+      <span style="font-size: 0.625rem; color: #a3a3a3; margin-top: 0.25rem;">1er</span>
     </div>
 
     <!-- Corte 2 (Empty) -->
-    <div class="flex flex-col items-center">
-      <div class="w-12 h-12 rounded-xl bg-neutral-800 border-2 border-dashed border-neutral-600 flex items-center justify-center text-neutral-500">
-        <span class="text-xs font-bold">2</span>
+    <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background-color: #262626; border: 2px dashed #525252; display: flex; align-items: center; justify-content: center; color: #737373; font-weight: bold; font-size: 0.875rem;">
+        2
       </div>
-      <span class="text-[10px] text-neutral-500 mt-1">2do</span>
+      <span style="font-size: 0.625rem; color: #737373; margin-top: 0.25rem;">2do</span>
     </div>
 
     <!-- Corte 3 (Empty) -->
-    <div class="flex flex-col items-center">
-      <div class="w-12 h-12 rounded-xl bg-neutral-800 border-2 border-dashed border-neutral-600 flex items-center justify-center text-neutral-500">
-        <span class="text-xs font-bold">3</span>
+    <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background-color: #262626; border: 2px dashed #525252; display: flex; align-items: center; justify-content: center; color: #737373; font-weight: bold; font-size: 0.875rem;">
+        3
       </div>
-      <span class="text-[10px] text-neutral-500 mt-1">3er</span>
+      <span style="font-size: 0.625rem; color: #737373; margin-top: 0.25rem;">3er</span>
     </div>
 
     <!-- Corte 4 (Empty) -->
-    <div class="flex flex-col items-center">
-      <div class="w-12 h-12 rounded-xl bg-neutral-800 border-2 border-dashed border-neutral-600 flex items-center justify-center text-neutral-500">
-        <span class="text-xs font-bold">4</span>
+    <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background-color: #262626; border: 2px dashed #525252; display: flex; align-items: center; justify-content: center; color: #737373; font-weight: bold; font-size: 0.875rem;">
+        4
       </div>
-      <span class="text-[10px] text-neutral-500 mt-1">4to</span>
+      <span style="font-size: 0.625rem; color: #737373; margin-top: 0.25rem;">4to</span>
     </div>
 
-    <!-- Corte 5 (Reward Slot) -->
-    <div class="flex flex-col items-center">
-      <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 border-2 border-amber-300 flex items-center justify-center text-neutral-950 shadow-lg shadow-amber-500/20">
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <!-- Corte 5 (Reward) -->
+    <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+      <div style="width: 3rem; height: 3rem; border-radius: 0.75rem; background: linear-gradient(to bottom right, #fbbf24, #d97706); border: 2px solid #fde68a; display: flex; align-items: center; justify-content: center; color: #0a0a0a; font-weight: bold; font-size: 1.25rem; box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.3);">
+        ★
       </div>
-      <span class="text-[10px] text-amber-400 font-bold mt-1">¡Gratis!</span>
+      <span style="font-size: 0.625rem; color: #fbbf24; font-weight: bold; margin-top: 0.25rem;">¡Gratis!</span>
     </div>
+
   </div>
 
   <!-- Reward Banner -->
-  <div class="bg-neutral-800/80 border border-neutral-700 rounded-xl p-3 text-xs text-neutral-300">
-    Recompensa al 5to corte: <span class="text-amber-400 font-bold">¡Corte GRATIS o 50% OFF!</span>
+  <div style="background-color: rgba(38, 38, 38, 0.8); border: 1px solid #404040; border-radius: 0.75rem; padding: 0.75rem; font-size: 0.75rem; color: #d4d4d4;">
+    Recompensa al 5to corte: <span style="color: #fbbf24; font-weight: bold;">¡Corte GRATIS o 50% OFF!</span>
   </div>
+
 </div>
