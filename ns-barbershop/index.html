@@ -28,7 +28,7 @@
             box-shadow: 0 16px 32px rgba(0,0,0,0.6);
         }
         .logo-container {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
         .logo-container img {
             width: 100%;
@@ -37,6 +37,18 @@
             border: 2px solid #f59e0b;
             display: block;
             box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        .qr-container {
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        .qr-container img {
+            width: 130px;
+            height: 130px;
+            display: block;
         }
         p {
             font-size: 0.85rem;
@@ -67,6 +79,11 @@
             <img src="/ns-barbershop/barbernewlogo.png" alt="NS Barber Shop Logo">
         </div>
         
+        <!-- Contenedor del código QR -->
+        <div class="qr-container">
+            <img src="/ns-barbershop/qrcode.png" alt="QR Code" onerror="this.style.display='none'">
+        </div>
+
         <p>¿Cómo calificarías tu experiencia hoy en la silla?</p>
         
         <div class="stars">
