@@ -27,6 +27,16 @@
             text-align: center;
             box-shadow: 0 16px 32px rgba(0,0,0,0.6);
         }
+        .logo-container {
+            margin-bottom: 16px;
+        }
+        .logo-container img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #f59e0b;
+        }
         h1 {
             font-size: 1.35rem;
             font-weight: 700;
@@ -36,7 +46,36 @@
         p {
             font-size: 0.85rem;
             color: #8e8e93;
+            margin-bottom: 20px;
+        }
+        .contact-info {
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+        }
+        .contact-info a {
+            color: #f59e0b;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 0;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             margin-bottom: 24px;
+        }
+        .social-links a {
+            color: #8e8e93;
+            font-size: 0.85rem;
+            text-decoration: none;
+            border: 1px solid #2c2c2e;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        .social-links a:hover {
+            color: #f59e0b;
+            border-color: #f59e0b;
         }
         .stars {
             display: flex;
@@ -58,8 +97,23 @@
 <body>
 
     <div class="card-container" id="review-stars-container">
+        <div class="logo-container">
+            <img src="barbernewlogo.png" alt="NS Barber Shop Logo">
+        </div>
+        
         <h1>NS Barber Shop</h1>
-        <p>Tarjeta de Lealtad VIP<br>¿Cómo calificarías tu experiencia hoy en la silla?</p>
+        <p>Tarjeta de Lealtad VIP</p>
+
+        <div class="contact-info">
+            <a href="https://wa.me/506XXXXXXXX" target="_blank">💬 WhatsApp / Teléfono</a>
+        </div>
+
+        <div class="social-links">
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+        </div>
+
+        <p style="margin-bottom: 16px;">¿Cómo calificarías tu experiencia hoy en la silla?</p>
         
         <div class="stars">
             <span class="star" onclick="handleStarRating(1)">★</span>
