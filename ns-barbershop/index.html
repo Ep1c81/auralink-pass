@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NS Barber Shop - Califica Nuestra Experiencia</title>
+    <title>NS Barber Shop - Tarjeta de Lealtad VIP</title>
     <style>
-        /* Tus estilos originales exactos */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #121212;
@@ -60,7 +59,7 @@
 
     <div class="card-container" id="review-stars-container">
         <h1>NS Barber Shop</h1>
-        <p>¿Cómo calificarías tu experiencia hoy en la silla?</p>
+        <p>Tarjeta de Lealtad VIP<br>¿Cómo calificarías tu experiencia hoy en la silla?</p>
         
         <div class="stars">
             <span class="star" onclick="handleStarRating(1)">★</span>
@@ -72,7 +71,6 @@
     </div>
 
     <script>
-        // Credenciales de Supabase
         const SUPABASE_URL = 'https://dnmkiknhodbjtjesoskj.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRubWtpa25ob2RianRqZXNvc2tqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA0MDQ0MDgsImV4cCI6MjA5NTk4MDQwOH0.IF92scBKKqlAzE9rIANUWeJElqGAZznGFwKJ6yS1xDs';
 
@@ -97,10 +95,8 @@
         }
 
         function handleStarRating(rating) {
-            // 1. Telemetría en segundo plano sin interrumpir la interfaz
             logCardEventToSupabase(rating);
 
-            // 2. Tu flujo original intacto
             if (rating >= 4) {
                 window.location.href = "https://search.google.com/local/writereview?placeid=ChIJvWRSJir9oI8RSdksjeB_J_Q";
             } else {
