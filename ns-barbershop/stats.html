@@ -80,7 +80,7 @@
             text-transform: uppercase;
         }
         .revenue-box .rev-amount {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: bold;
             color: #ffffff;
             margin: 0;
@@ -108,7 +108,7 @@
 
         <div class="metric-card">
             <div class="metric-info">
-                <h3>Reseñas 5 Estrellas</h3>
+                <h3>Reseñas 5 Estrellas (Google Maps)</h3>
                 <p class="value" id="val-reviews">34</p>
             </div>
             <div class="metric-icon">⭐</div>
@@ -116,24 +116,16 @@
 
         <div class="metric-card">
             <div class="metric-info">
-                <h3>Escaneos de Tarjeta NFC</h3>
-                <p class="value" id="val-scans">--</p>
+                <h3>Interacciones Registradas (NFC)</h3>
+                <p class="value" id="val-scans">Cargando...</p>
             </div>
             <div class="metric-icon">📱</div>
         </div>
 
-        <div class="metric-card">
-            <div class="metric-info">
-                <h3>Conversión a Google Maps</h3>
-                <p class="value" id="val-conversion">94%</p>
-            </div>
-            <div class="metric-icon">🚀</div>
-        </div>
-
         <div class="revenue-box">
-            <h3>Impacto Estimado en Caja</h3>
-            <p class="rev-amount">+40% a +60%</p>
-            <p>Incremento de retención y clientes nuevos mensuales</p>
+            <h3>Impacto en Posicionamiento</h3>
+            <p class="rev-amount">De 2 a 34 Reseñas Reales</p>
+            <p>Salto directo al Top de Búsquedas Locales</p>
         </div>
 
         <div class="footer-brand">
@@ -147,7 +139,6 @@
 
         async function fetchRealtimeMetrics() {
             try {
-                // Consultar eventos registrados en Supabase
                 const response = await fetch(`${SUPABASE_URL}/rest/v1/card_events?select=*`, {
                     headers: {
                         'apikey': SUPABASE_ANON_KEY,
@@ -157,18 +148,13 @@
                 
                 if (response.ok) {
                     const data = await response.json();
-                    const totalInteractions = data.length;
-                    
-                    // Si hay eventos registrados, actualizamos el contador de interacciones/escaneos
-                    if (totalInteractions > 0) {
-                        document.getElementById('val-scans').innerText = totalInteractions + 34; // Base inicial + registros
-                    } else {
-                        document.getElementById('val-scans').innerText = "142"; // Valor por defecto si va iniciando
-                    }
+                    document.getElementById('val-scans').innerText = data.length;
+                } else {
+                    document.getElementById('val-scans').innerText = "0";
                 }
             } catch (error) {
                 console.error("Error al sincronizar métricas:", error);
-                document.getElementById('val-scans').innerText = "142";
+                document.getElementById('val-scans').innerText = "0";
             }
         }
 
