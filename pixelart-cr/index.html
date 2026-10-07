@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PixelArtCR | Multi-impresos - Reseña y Contacto</title>
-    <!-- FontAwesome Icons for crisp, professional visuals -->
+    <title>PixelArtCR | Califica tu experiencia</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* CSS Reset & Core Typography */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -20,7 +18,6 @@
             color: #333;
         }
 
-        /* Main Card Container */
         .card {
             background: #ffffff;
             width: 100%;
@@ -31,17 +28,39 @@
             text-align: center;
         }
 
-        /* Branding */
-        .logo {
-            max-width: 120px;
-            margin: 0 auto 15px;
-            display: block;
-            border-radius: 12px;
-        }
+        .logo { max-width: 120px; margin: 0 auto 15px; display: block; border-radius: 12px; }
         h1 { font-size: 26px; color: #0f172a; margin-bottom: 4px; font-weight: 800; letter-spacing: -0.5px; }
         p.subtitle { font-size: 15px; color: #64748b; margin-bottom: 25px; font-weight: 500; }
 
-        /* Primary Action Buttons */
+        /* Review Gate Box */
+        .rating-box {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 20px 15px;
+            margin-bottom: 15px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .rating-text {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .star-btn {
+            font-size: 38px;
+            color: #cbd5e1;
+            cursor: pointer;
+            transition: transform 0.1s, color 0.2s;
+        }
+        .star-btn:active { transform: scale(0.85); }
+
+        /* Secondary Action Button */
         .btn {
             display: flex;
             align-items: center;
@@ -56,82 +75,68 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .btn:active { transform: scale(0.97); }
-        
-        .btn-google {
-            background: #4285F4;
-            color: white;
-            box-shadow: 0 8px 16px rgba(66, 133, 244, 0.25);
-        }
-        .btn-google:hover { background: #3367D6; }
-        
         .btn-website {
             background: linear-gradient(135deg, #ec4899 0%, #6366f1 100%);
             color: white;
             box-shadow: 0 8px 16px rgba(236, 72, 153, 0.25);
         }
-        
         .btn i { margin-right: 12px; font-size: 20px; }
 
-        /* Premium Contact Box */
+        /* Contact Box */
         .contact-box {
             background: #f8fafc;
-            border: 2px solid #f1f5f9;
             border-radius: 16px;
-            padding: 18px;
-            margin: 25px 0;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+            padding: 20px 15px;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
         }
         .contact-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 10px 0;
+            justify-content: flex-start;
+            width: fit-content;
             font-size: 16px;
             font-weight: 600;
+            white-space: nowrap;
         }
-        .contact-item i { margin-right: 10px; font-size: 18px; }
+        .contact-item i { width: 28px; text-align: left; font-size: 20px; }
         .contact-item a { color: #334155; text-decoration: none; transition: color 0.2s; }
         .contact-item a:hover { color: #0f172a; }
-        
         .icon-phone { color: #3b82f6; }
         .icon-wa { color: #25D366; }
 
-        /* Integrated QR Code Section */
-        .qr-section {
-            margin-top: 25px;
-            padding-top: 25px;
-            border-top: 2px dashed #e2e8f0;
-        }
+        /* QR Section */
+        .qr-section { margin-top: 20px; padding-top: 25px; border-top: 2px dashed #e2e8f0; }
         .qr-section p { font-size: 14px; color: #475569; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-        .qr-code {
-            width: 140px;
-            height: 140px;
-            border-radius: 12px;
-            border: 3px solid #f8fafc;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
+        .qr-code { width: 140px; height: 140px; border-radius: 12px; border: 3px solid #f8fafc; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
     </style>
 </head>
 <body>
     <div class="card">
-        <!-- Brand Logo -->
-        <img src="pixelartcr-logo.jpg" alt="Logo de PixelArtCR" class="logo">
+        <img src="./pixelartcr-logo.jpg" alt="Logo de PixelArtCR" class="logo">
         
-        <!-- Headers -->
         <h1>PixelArtCR</h1>
         <p class="subtitle">Multi-impresos & Imprenta</p>
 
-        <!-- Direct Google Review Trigger -->
-        <a href="https://search.google.com/local/writereview?placeid=ChIJwxanJBD8oI8RAhC8IiIqMqo" class="btn btn-google" target="_blank">
-            <i class="fa-solid fa-star" style="color: #FFD43B;"></i> Dejar Reseña en Google
-        </a>
+        <!-- Star Rating Filter -->
+        <div class="rating-box">
+            <div class="rating-text">¿Cómo calificarías tu experiencia?</div>
+            <div class="stars">
+                <i class="fa-solid fa-star star-btn" data-value="1"></i>
+                <i class="fa-solid fa-star star-btn" data-value="2"></i>
+                <i class="fa-solid fa-star star-btn" data-value="3"></i>
+                <i class="fa-solid fa-star star-btn" data-value="4"></i>
+                <i class="fa-solid fa-star star-btn" data-value="5"></i>
+            </div>
+        </div>
 
-        <!-- Official Website Link -->
         <a href="https://pixelartcr.com" class="btn btn-website" target="_blank">
             <i class="fa-solid fa-globe"></i> Visitar Sitio Web Oficial
         </a>
 
-        <!-- High-Visibility Contact Section -->
         <div class="contact-box">
             <div class="contact-item">
                 <i class="fa-solid fa-phone icon-phone"></i>
@@ -139,17 +144,46 @@
             </div>
             <div class="contact-item">
                 <i class="fa-brands fa-whatsapp icon-wa"></i>
-                <!-- WhatsApp link pre-filled with the cell number -->
                 <a href="https://wa.me/50687011953" target="_blank">Cel: (506) 8701-1953</a>
             </div>
         </div>
 
-        <!-- In-Person Scanning Tool -->
         <div class="qr-section">
             <p>¡Escanea para calificarnos!</p>
-            <!-- Auto-generated QR routing to the Google Review form -->
-            <img src="https://quickchart.io/qr?text=https://search.google.com/local/writereview?placeid=ChIJwxanJBD8oI8RAhC8IiIqMqo&size=200&margin=2" alt="Código QR para Reseña" class="qr-code">
+            <!-- QR code now correctly routes to the review gate landing page -->
+            <img src="https://quickchart.io/qr?text=https://auralink-pass.vercel.app/pixelart-cr&size=200&margin=2" alt="Código QR para Reseña" class="qr-code">
         </div>
     </div>
+
+    <!-- Review Filter Logic -->
+    <script>
+        const starList = document.querySelectorAll('.star-btn');
+        
+        // Interactive hover effect for stars
+        starList.forEach((star, index) => {
+            star.addEventListener('mouseover', () => {
+                starList.forEach((s, i) => {
+                    s.style.color = i <= index ? '#FFD43B' : '#cbd5e1';
+                });
+            });
+            star.addEventListener('mouseout', () => {
+                starList.forEach(s => s.style.color = '#cbd5e1');
+            });
+
+            // Routing logic based on rating
+            star.addEventListener('click', () => {
+                const rating = parseInt(star.getAttribute('data-value'));
+                
+                if (rating >= 4) {
+                    // Send directly to Google Reviews
+                    window.open('https://search.google.com/local/writereview?placeid=ChIJwxanJBD8oI8RAhC8IiIqMqo', '_blank');
+                } else {
+                    // Intercept bad reviews and send to WhatsApp management
+                    const message = encodeURIComponent(`Hola. Mi calificación fue de ${rating} estrellas. Me gustaría dejar el siguiente comentario sobre mi experiencia para que puedan mejorar: `);
+                    window.open(`https://wa.me/50687011953?text=${message}`, '_blank');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
