@@ -32,116 +32,125 @@
         h1 { font-size: 26px; color: #0f172a; margin-bottom: 4px; font-weight: 800; letter-spacing: -0.5px; }
         p.subtitle { font-size: 15px; color: #64748b; margin-bottom: 25px; font-weight: 500; }
 
-        /* Massive Review Gate Box for Mobile Tapping */
+        /* Rating Section */
         .rating-box {
             background: #f8fafc;
             border: 2px solid #e2e8f0;
             border-radius: 16px;
             padding: 25px 15px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.05);
         }
-        .rating-text {
-            font-size: 18px;
-            font-weight: 800;
-            color: #0f172a;
+        .rating-text { font-size: 16px; font-weight: 800; color: #0f172a; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .stars { display: flex; justify-content: center; gap: 12px; }
+        .star-btn {
+            font-size: 42px; 
+            color: #cbd5e1; 
+            cursor: pointer;
+            background: none;
+            border: none;
+            -webkit-tap-highlight-color: transparent; 
+            transition: transform 0.1s;
+        }
+        .star-btn:active { transform: scale(0.9); }
+
+        /* Formspree Private Inbox Box (1-3 Stars) */
+        .private-feedback-box {
+            display: none; /* Hidden by default */
+            background: #f8fafc;
+            border: 2px solid #cbd5e1;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .private-feedback-box p { font-size: 13px; color: #334155; font-weight: 700; margin-bottom: 15px; text-align: center; }
+        .form-label { display: block; font-size: 12px; font-weight: 700; color: #64748b; margin-bottom: 5px; }
+        .form-input { width: 100%; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px; font-size: 14px; margin-bottom: 12px; color: #0f172a; font-family: inherit; }
+        .form-input:focus { outline: none; border-color: #6366f1; }
+        .submit-btn { width: 100%; background: #0f172a; color: white; border: none; padding: 14px; border-radius: 10px; font-weight: 800; font-size: 14px; text-transform: uppercase; cursor: pointer; }
+
+        /* Google Redirect Box (4-5 Stars) */
+        .google-redirect-box {
+            display: none; /* Hidden by default */
+            background: #f0fdf4;
+            border: 2px solid #bbf7d0;
+            border-radius: 16px;
+            padding: 20px;
             margin-bottom: 15px;
         }
-        .stars {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-        }
-        .star-btn {
-            font-size: 42px; /* Increased size for easier mobile tapping */
-            color: #cbd5e1;
-            cursor: pointer;
-            -webkit-tap-highlight-color: transparent; /* Removes blue flash on mobile tap */
-        }
-        /* Make stars gold by default to look more inviting */
-        .star-btn { color: #FFD43B; }
+        .google-redirect-box p { font-size: 14px; color: #166534; font-weight: 700; margin-bottom: 15px; }
+        .btn-google { display: flex; align-items: center; justify-content: center; width: 100%; background: #10b981; color: white; padding: 16px; border-radius: 14px; text-decoration: none; font-weight: 800; font-size: 15px; text-transform: uppercase; }
+        .btn-google i { margin-right: 10px; font-size: 18px; }
 
-        /* Secondary Action Button */
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 16px;
-            border-radius: 14px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            margin-bottom: 14px;
-        }
-        .btn-website {
-            background: linear-gradient(135deg, #ec4899 0%, #6366f1 100%);
-            color: white;
-            box-shadow: 0 8px 16px rgba(236, 72, 153, 0.25);
-        }
-        .btn i { margin-right: 12px; font-size: 20px; }
-
-        /* Contact Box */
-        .contact-box {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 20px 15px;
-            margin: 20px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 14px;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            width: fit-content;
-            font-size: 16px;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-        .contact-item i { width: 28px; text-align: left; font-size: 20px; }
+        /* Utility buttons & QR */
+        .btn-website { display: flex; align-items: center; justify-content: center; width: 100%; background: linear-gradient(135deg, #ec4899 0%, #6366f1 100%); color: white; padding: 16px; border-radius: 14px; text-decoration: none; font-weight: 700; font-size: 16px; margin-bottom: 15px; }
+        .btn-website i { margin-right: 12px; font-size: 20px; }
+        .contact-box { background: #f8fafc; border-radius: 16px; padding: 15px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .contact-item { display: flex; align-items: center; justify-content: flex-start; width: fit-content; font-size: 15px; font-weight: 600; white-space: nowrap; }
+        .contact-item i { width: 28px; text-align: left; font-size: 18px; }
         .contact-item a { color: #334155; text-decoration: none; }
         .icon-phone { color: #3b82f6; }
         .icon-wa { color: #25D366; }
-
-        /* QR Section */
-        .qr-section { margin-top: 20px; padding-top: 25px; border-top: 2px dashed #e2e8f0; }
-        .qr-section p { font-size: 14px; color: #475569; margin-bottom: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-        .qr-code { width: 140px; height: 140px; border-radius: 12px; border: 3px solid #f8fafc; }
+        .qr-section { margin-top: 20px; padding-top: 20px; border-top: 2px dashed #e2e8f0; }
+        .qr-section p { font-size: 13px; color: #475569; margin-bottom: 10px; font-weight: 700; text-transform: uppercase; }
+        .qr-code { width: 120px; height: 120px; border-radius: 12px; border: 3px solid #f8fafc; }
     </style>
 </head>
 <body>
     <div class="card">
-<img src="https://auralink-pass.vercel.app/pixelart-cr/pixelartcr-logo.jpg?v=1" alt="Logo de PixelArtCR" class="logo">        <h1>PixelArtCR</h1>
+        <img src="https://auralink-pass.vercel.app/pixelart-cr/pixelartcr-logo.jpg?v=1" alt="Logo de PixelArtCR" class="logo">
+        
+        <h1>PixelArtCR</h1>
         <p class="subtitle">Multi-impresos & Imprenta</p>
 
-        <!-- The 5 Stars are right here on the main page -->
-        <div class="rating-box">
-            <div class="rating-text">¿Cómo calificarías tu experiencia?</div>
+        <!-- Star Rating Gate -->
+        <div class="rating-box" id="rating-container">
+            <p class="rating-text">¿Cómo fue tu experiencia hoy?</p>
             <div class="stars">
-                <i class="fa-solid fa-star star-btn" data-value="1"></i>
-                <i class="fa-solid fa-star star-btn" data-value="2"></i>
-                <i class="fa-solid fa-star star-btn" data-value="3"></i>
-                <i class="fa-solid fa-star star-btn" data-value="4"></i>
-                <i class="fa-solid fa-star star-btn" data-value="5"></i>
+                <button type="button" onclick="handleRating(1)" class="star-btn"><i class="fa-solid fa-star"></i></button>
+                <button type="button" onclick="handleRating(2)" class="star-btn"><i class="fa-solid fa-star"></i></button>
+                <button type="button" onclick="handleRating(3)" class="star-btn"><i class="fa-solid fa-star"></i></button>
+                <button type="button" onclick="handleRating(4)" class="star-btn"><i class="fa-solid fa-star"></i></button>
+                <button type="button" onclick="handleRating(5)" class="star-btn"><i class="fa-solid fa-star"></i></button>
             </div>
         </div>
 
-        <a href="https://pixelartcr.com" class="btn btn-website" target="_blank">
+        <!-- PRIVATE FEEDBACK FORM (1-3 Stars) -->
+        <div id="private-feedback-box" class="private-feedback-box">
+            <p>Queremos mejorar. Envíanos tus comentarios directamente a gerencia:</p>
+            
+            <form action="https://formspree.io/f/mbgdgzga" method="POST">
+                <input type="hidden" name="rating" id="rating-value" value="">
+                
+                <label class="form-label">Nombre Completo</label>
+                <input type="text" name="name" required placeholder="Tu nombre" class="form-input">
+                
+                <label class="form-label">Número de WhatsApp</label>
+                <input type="tel" name="whatsapp" required placeholder="Ej: 8701-1953" class="form-input">
+                
+                <label class="form-label">¿En qué podemos mejorar?</label>
+                <textarea name="feedback" rows="3" required placeholder="Detalles de tu experiencia..." class="form-input" style="resize: none;"></textarea>
+                
+                <button type="submit" class="submit-btn">Enviar Comentario Privado</button>
+            </form>
+        </div>
+
+        <!-- PUBLIC GOOGLE REVIEW REDIRECT (4-5 Stars) -->
+        <div id="google-redirect-box" class="google-redirect-box">
+            <p>¡Nos alegra mucho que te gustara!<br><span style="font-size: 12px; color: #15803d; font-weight: 500;">Déjanos tu opinión pública en Google.</span></p>
+            <a href="https://search.google.com/local/writereview?placeid=ChIJwxanJBD8oI8RAhC8IiIqMqo" target="_blank" class="btn-google">
+                <i class="fa-brands fa-google"></i> Dejar Reseña en Google
+            </a>
+        </div>
+
+        <a href="https://pixelartcr.com" class="btn-website" target="_blank">
             <i class="fa-solid fa-globe"></i> Visitar Sitio Web Oficial
         </a>
 
         <div class="contact-box">
-            <div class="contact-item">
-                <i class="fa-solid fa-phone icon-phone"></i>
-                <a href="tel:+50622821870">(506) 2282-1870</a>
-            </div>
-            <div class="contact-item">
-                <i class="fa-brands fa-whatsapp icon-wa"></i>
-                <a href="https://wa.me/50687011953" target="_blank">Cel: (506) 8701-1953</a>
-            </div>
+            <div class="contact-item"><i class="fa-solid fa-phone icon-phone"></i><a href="tel:+50622821870">(506) 2282-1870</a></div>
+            <div class="contact-item"><i class="fa-brands fa-whatsapp icon-wa"></i><a href="https://wa.me/50687011953" target="_blank">Cel: (506) 8701-1953</a></div>
         </div>
 
         <div class="qr-section">
@@ -150,26 +159,30 @@
         </div>
     </div>
 
-    <!-- Mobile-Optimized Single-Tap Logic -->
+    <!-- Routing Logic -->
     <script>
-        const starList = document.querySelectorAll('.star-btn');
-        
-        starList.forEach(star => {
-            // "touchstart" and "click" combined ensures instant mobile response
-            star.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevents double-firing on some browsers
-                const rating = parseInt(this.getAttribute('data-value'));
-                
-                if (rating >= 4) {
-                    // 4 or 5 stars -> Direct to Google Review Pop-up
-                    window.location.href = 'https://search.google.com/local/writereview?placeid=ChIJwxanJBD8oI8RAhC8IiIqMqo';
-                } else {
-                    // 1, 2, or 3 stars -> Direct to Management WhatsApp
-                    const message = encodeURIComponent(`Hola. Mi calificación fue de ${rating} estrellas. Me gustaría dejar el siguiente comentario sobre mi experiencia para que puedan mejorar: `);
-                    window.location.href = `https://wa.me/50687011953?text=${message}`;
-                }
+        const starBtns = document.querySelectorAll('.star-btn');
+        const privateBox = document.getElementById('private-feedback-box');
+        const googleBox = document.getElementById('google-redirect-box');
+        const ratingInput = document.getElementById('rating-value');
+
+        function handleRating(rating) {
+            // Update star colors
+            starBtns.forEach((btn, index) => {
+                btn.style.color = index < rating ? '#FFD43B' : '#cbd5e1';
             });
-        });
+
+            if (rating >= 4) {
+                // Show Google Box, Hide Private Box
+                privateBox.style.display = 'none';
+                googleBox.style.display = 'block';
+            } else {
+                // Show Private Box, Hide Google Box
+                ratingInput.value = rating + " Estrellas";
+                googleBox.style.display = 'none';
+                privateBox.style.display = 'block';
+            }
+        }
     </script>
 </body>
 </html>
