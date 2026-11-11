@@ -361,7 +361,10 @@
           window.location.href = GOOGLE_REVIEW_URL;
         }, 1800);
       } else {
-        googleBox.classList.add('hidden');
+        // Every customer can leave a public Google review, whatever their
+        // rating. 1-3 stars also get the optional private form.
+        googleBtn.href = GOOGLE_REVIEW_URL;
+        googleBox.classList.remove('hidden');
         privateBox.classList.remove('hidden');
       }
     }
