@@ -165,7 +165,7 @@
     
     <div id="rating-section">
         <h1>¡Salud por tu experiencia! 🥂</h1>
-        <p>Queremos saber cómo te fue. Califícanos para desbloquear tu beneficio exclusivo de cliente frecuente.</p>
+        <p>Queremos saber cómo te fue. Tu opinión nos ayuda a mejorar.</p>
         
         <div class="stars">
             <span class="star" data-value="1">★</span>
@@ -186,6 +186,12 @@
         <textarea name="message" rows="4" placeholder="¿Qué podemos hacer mejor?" required></textarea>
         <button type="submit">Enviar a Gerencia</button>
     </form>
+
+    <!-- Every customer can review on Google, whatever their rating -->
+    <div id="google-for-all" style="display: none; text-align: center; margin-top: 16px;">
+        <p style="margin-bottom: 10px;">También podés dejar tu opinión pública en Google:</p>
+        <a href="https://search.google.com/local/writereview?placeid=ChIJp_9SBQD9oI8Rgnn7xZWl5f8" target="_blank" rel="noopener" style="display: inline-block; padding: 12px 22px; border-radius: 10px; background: #ffffff; color: #111111; font-weight: 700; text-decoration: none;">Dejar reseña en Google</a>
+    </div>
 
     <!-- Social & Contact Links (GoMobile Style) -->
     <div class="social-links">
@@ -225,6 +231,7 @@
             } else {
                 ratingSection.style.display = 'none';
                 feedbackForm.style.display = 'flex';
+                document.getElementById('google-for-all').style.display = 'block';
             }
         });
 
